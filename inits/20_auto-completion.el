@@ -31,8 +31,8 @@
 ;;; Otherwise, indent.
 (define-key company-mode-map (kbd "<tab>") 'company-indent-or-complete-common)
 
-(define-key company-active-map "<tab>" 'company-select-next-if-tooltip-visible-or-complete-selection)
-(define-key company-active-map "<backtab>" 'company-select-previous)
+(define-key company-active-map (kbd "<tab>") 'company-select-next-if-tooltip-visible-or-complete-selection)
+(define-key company-active-map (kbd "<backtab>") 'company-select-previous)
 
 ;;; Backend for C++, using irony.
 (require 'irony)
@@ -52,6 +52,7 @@
 (add-hook 'c++-mode-hook #'my-flycheck-rtags-setup)
 
 (cmake-ide-setup)
+(global-set-key (kbd "C-S-b") 'cmake-ide-compile)
 
 ;;;; Settings for auto-complete-mode
 ;(require 'auto-complete)
