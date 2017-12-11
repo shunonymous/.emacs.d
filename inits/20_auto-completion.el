@@ -36,9 +36,22 @@
 
 ;;; Backend for C++, using irony.
 (require 'irony)
+(require 'flycheck)
 (add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c++-mode-hook 'flycheck-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 (add-to-list 'company-backends 'company-irony)
+
+(require 'flycheck-rtags)
+
+(defun my-flycheck-rtags-setup ()
+  (flycheck-select-checker 'rtags)
+  (setq-local flycheck-highlighting-mode nil)
+  (setq-local flycheck-check-syntax-automatically nil))
+
+(add-hook 'c++-mode-hook #'my-flycheck-rtags-setup)
+
+(cmake-ide-setup)
 
 ;;;; Settings for auto-complete-mode
 ;(require 'auto-complete)
