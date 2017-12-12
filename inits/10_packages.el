@@ -25,3 +25,6 @@
 
 ;;; minibuf-isearch
 (require 'minibuf-isearch)
+
+;;; magit
+(require 'magit)
