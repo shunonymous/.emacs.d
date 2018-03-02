@@ -37,8 +37,8 @@
 ;;; Backend for C++, using irony.
 (require 'irony)
 (require 'flycheck)
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c++-mode-hook 'flycheck-mode)
+(add-hook 'c-mode-common-hook 'irony-mode)
+(add-hook 'c-mode-common-hook 'flycheck-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 (add-to-list 'company-backends 'company-irony)
 
@@ -49,7 +49,7 @@
   (setq-local flycheck-highlighting-mode nil)
   (setq-local flycheck-check-syntax-automatically nil))
 
-(add-hook 'c++-mode-hook #'my-flycheck-rtags-setup)
+(add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
 
 (cmake-ide-setup)
 (global-set-key (kbd "C-S-b") 'cmake-ide-compile)
