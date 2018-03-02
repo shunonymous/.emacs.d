@@ -31,4 +31,4 @@
 
 ;;; smartparens
 (require 'smartparens)
-(smartparens-global-mode)
+(smartparens-global-mode 1)
