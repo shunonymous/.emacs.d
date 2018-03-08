@@ -48,3 +48,7 @@
         try-expand-dabbrev
         try-expand-dabbrev-all-buffers
         try-expand-dabbrev-from-kill))
+
+;;; Regexp grouping color
+(set-face-background 'font-lock-regexp-grouping-backslash "green3")
+(set-face-background 'font-lock-regexp-grouping-construct "green")
