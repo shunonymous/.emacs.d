@@ -11,7 +11,7 @@
 
 ;;; sudo-edit
 (require 'sudo-edit)
-(global-set-key (kbd "C-c C-r") 'sudo-edit-current-file)
+(global-set-key (kbd "C-c C-r") 'sudo-edit)
 
 ;;; helm
 (require 'helm-config)
