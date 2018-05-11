@@ -52,3 +52,6 @@
 ;;; Regexp grouping color
 (set-face-background 'font-lock-regexp-grouping-backslash "green3")
 (set-face-background 'font-lock-regexp-grouping-construct "green")
+
+;;; Kill generating backups
+(setq make-backup-files nil)
