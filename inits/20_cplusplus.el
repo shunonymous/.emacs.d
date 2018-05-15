@@ -46,7 +46,8 @@
 (add-hook 'c-mode-common-hook 'irony-mode)
 (add-hook 'c-mode-common-hook 'flycheck-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-(add-to-list 'company-backends 'company-irony 'company-c-headers)
+(add-to-list 'company-backends 'company-irony)
+(add-to-list 'company-backends 'company-c-headers)
 
 (require 'flycheck-rtags)
 
