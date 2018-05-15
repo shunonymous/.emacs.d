@@ -31,8 +31,14 @@
 ;;; Otherwise, indent.
 (define-key company-mode-map (kbd "<tab>") 'company-indent-or-complete-common)
 
-(define-key company-active-map (kbd "<tab>") 'company-select-next-if-tooltip-visible-or-complete-selection)
+(define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
 (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
+
+;;; Select suggestions by C-n and C-p.
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-search-map (kbd "C-n") 'company-select-next)
+(define-key company-search-map (kbd "C-p") 'company-select-previous)
 
 ;;; Backend for C++, using irony.
 (require 'irony)
