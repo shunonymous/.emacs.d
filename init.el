@@ -15,6 +15,10 @@
 (require 'helm)
 (setq helm-use-frame-when-more-than-two-windows nil)
 
+;;; Disable menu-bar and tool-bar (when GUI)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+
 ;;; smartparens
 (require 'smartparens-config)
 (smartparens-global-mode 1)

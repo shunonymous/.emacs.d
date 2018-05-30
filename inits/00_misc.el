@@ -34,10 +34,6 @@
 	       '("TakaoExGothic-10" . "unicode-bmp"))
 	      ))))
 
-;;; Disable menu-bar and tool-bar (when GUI)
-(tool-bar-mode 0)
-(menu-bar-mode 0)
-
 ;;; Store recently opened files
 (recentf-mode 1)
 
