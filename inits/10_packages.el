@@ -23,9 +23,6 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
-;;; minibuf-isearch
-(require 'minibuf-isearch)
-
 ;;; magit
 (require 'magit)
 
