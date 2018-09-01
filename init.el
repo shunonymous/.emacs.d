@@ -11,6 +11,11 @@
 
 (init-loader-load)
 
+;;; If C++ mode, set indent mode as stroustrup
+(add-hook 'c++-mode-hook
+	  '(lambda()
+	     (c-set-style "stroustrup")))
+
 ;;; Fix helm's f*ckin default behavior
 (require 'helm)
 (setq helm-use-frame-when-more-than-two-windows nil)
@@ -18,6 +23,10 @@
 ;;; Disable menu-bar and tool-bar (when GUI)
 (tool-bar-mode 0)
 (menu-bar-mode 0)
+
+;;; Display time
+(setq display-time-24hr-format t)
+(display-time-mode t)
 
 ;;; smartparens
 (require 'smartparens-config)

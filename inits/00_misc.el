@@ -10,11 +10,6 @@
 (set-face-background 'show-paren-match-face "grey")
 (set-face-foreground 'show-paren-match-face "black")
 
-;;; If C++ mode, set indent mode as stroustrup
-(add-hook 'c++-mode-hook
-	  '(lambda()
-	     (c-set-style "stroustrup")))
-
 ;;; Font set
 (add-to-list 'default-frame-alist '(font . "Ubuntu Mono-10.5"))
 (cond ((string-match "^23\." emacs-version)
