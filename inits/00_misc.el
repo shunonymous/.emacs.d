@@ -4,6 +4,9 @@
 (global-set-key (kbd "M-<left>") 'windmove-left)
 (global-set-key (kbd "M-<right>") 'windmove-right)
 
+;;; Display line numbers
+(global-display-line-numbers-mode t)
+
 ;;; Highlight pare delimiters on cursor
 (show-paren-mode 1)
 (setq show-paren-style 'mixed)
