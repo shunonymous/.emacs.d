@@ -4,6 +4,9 @@
 (global-set-key (kbd "M-<left>") 'windmove-left)
 (global-set-key (kbd "M-<right>") 'windmove-right)
 
+;;; multiframe
+(global-set-key (kbd "M-RET") 'other-frame)
+
 ;;; Display line numbers
 (global-display-line-numbers-mode t)
 
