@@ -38,11 +38,6 @@
 ;;; Display line numbers
 (global-display-line-numbers-mode t)
 
-;;; If C++ mode, set indent mode as stroustrup
-(add-hook 'c++-mode-hook
-	  '(lambda()
-	     (c-set-style "stroustrup")))
-
 ;;; Store recently opened files
 (recentf-mode 1)
 
