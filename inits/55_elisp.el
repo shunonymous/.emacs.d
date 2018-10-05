@@ -1,6 +1,4 @@
-(require 'open-junk-file)
-(global-set-key (kbd "C-x C-z") 'open-junk-file)
-
+;;; Settings fo Emacs lisp
 (require 'lispxmp)
 (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
 

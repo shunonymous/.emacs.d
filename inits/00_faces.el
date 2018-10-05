@@ -1,20 +1,12 @@
-;;; Moving buffer by C-<Arrow-key>
-(global-set-key (kbd "M-<up>") 'windmove-up)
-(global-set-key (kbd "M-<down>") 'windmove-down)
-(global-set-key (kbd "M-<left>") 'windmove-left)
-(global-set-key (kbd "M-<right>") 'windmove-right)
+;;; Theme
+(load-theme 'cherry-blossom t)
+;;; Override inactive line string color to improve visibility
+(set-face-attribute 'mode-line-inactive nil
+		    :foreground "gray35")
 
-;;; multiframe
-(global-set-key (kbd "M-RET") 'other-frame)
-
-;;; Display line numbers
-(global-display-line-numbers-mode t)
-
-;;; Highlight pare delimiters on cursor
-(show-paren-mode 1)
-(setq show-paren-style 'mixed)
-(set-face-background 'show-paren-match-face "grey")
-(set-face-foreground 'show-paren-match-face "black")
+;;; Disable menu-bar and tool-bar (when GUI)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
 
 ;;; Font set
 (add-to-list 'default-frame-alist '(font . "Ubuntu Mono-10.5"))
@@ -35,6 +27,22 @@
 	       '("TakaoExGothic-10" . "unicode-bmp"))
 	      ))))
 
+;;; powerline
+(require 'powerline)
+(powerline-default-theme)
+
+;;; Display time
+(setq display-time-24hr-format t)
+(display-time-mode t)
+
+;;; Display line numbers
+(global-display-line-numbers-mode t)
+
+;;; If C++ mode, set indent mode as stroustrup
+(add-hook 'c++-mode-hook
+	  '(lambda()
+	     (c-set-style "stroustrup")))
+
 ;;; Store recently opened files
 (recentf-mode 1)
 
@@ -50,5 +58,4 @@
 (set-face-background 'font-lock-regexp-grouping-backslash "green3")
 (set-face-background 'font-lock-regexp-grouping-construct "green")
 
-;;; Kill generating backups
-(setq make-backup-files nil)
+

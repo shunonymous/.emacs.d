@@ -1,3 +1,13 @@
+;;; Settings for programming, mainly C++
+
+;;; If C++ mode, set indent mode as stroustrup
+(add-hook 'c++-mode-hook
+	  '(lambda()
+	     (c-set-style "stroustrup")))
+
+;;; magit
+(require 'magit)
+
 ;;; Settings for company-mode
 ;(require 'company)
 ;(add-hook 'after-init-hook 'global-company-mode)
@@ -43,14 +53,17 @@
 ;;; Backend for C++, using irony.
 (require 'irony)
 (require 'flycheck)
+(require 'company-c-headers)
+(require 'company-cmake)
 (add-hook 'c-mode-common-hook 'irony-mode)
-(add-hook 'c-mode-common-hook 'flycheck-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 (add-to-list 'company-backends 'company-irony)
 (add-to-list 'company-backends 'company-c-headers)
+(add-to-list 'company-backend 'company-cmake)
 (add-to-list 'company-c-headers-path-system "/usr/include/c++/v1/")
 
 (require 'flycheck-rtags)
+(add-hook 'c-mode-common-hook 'flycheck-mode)
 
 (defun my-flycheck-rtags-setup ()
   (flycheck-select-checker 'rtags)
