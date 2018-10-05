@@ -1,3 +1,7 @@
+;;; electric pair mode
+(require 'elec-pair)
+(electric-pair-mode t)
+
 ;;; Enable rainbow-delimiters-mode
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
