@@ -74,3 +74,12 @@
 
 (cmake-ide-setup)
 (global-set-key (kbd "C-S-b") 'cmake-ide-compile)
+
+(defun setup-servers ()
+  "Setup or update irony and rdm."
+  (interactive)
+  (if (eq system-type "windows-nt")
+      (setq cmakeflags "")
+    (setq cmakeflags "-DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"))
+  (rtags-install nil cmakeflags)
+  (irony-install-server))
