@@ -44,6 +44,9 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
+;;; undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
