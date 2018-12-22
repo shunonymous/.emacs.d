@@ -27,6 +27,12 @@
 	       '("TakaoExGothic-10" . "unicode-bmp"))
 	      ))))
 
+;;; highlights
+(require 'volatile-highlights)
+(volatile-highlights-mode t)
+
+(global-hl-line-mode t)
+
 ;;; powerline
 (require 'powerline)
 (powerline-default-theme)
