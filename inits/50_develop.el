@@ -7,7 +7,7 @@
 
 ;;; magit
 (require 'magit)
-
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; ;;; Settings for company-mode
 ;; (require 'company)
