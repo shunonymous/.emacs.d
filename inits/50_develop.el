@@ -65,6 +65,8 @@
 
 ;; flycheck
 (require 'flycheck)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 (add-hook 'c-mode-common-hook 'flycheck-mode)
 
 ;; cmake-ide
