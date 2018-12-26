@@ -59,6 +59,10 @@
 (add-to-list 'company-backend 'company-cmake)
 (add-to-list 'company-c-headers-path-system "/usr/include/c++/v1/")
 
+;;; Eldoc
+(require 'irony)
+(add-hook 'c-mode-common-hook 'irony-eldoc)
+
 ;; flycheck
 (require 'flycheck)
 (add-hook 'c-mode-common-hook 'flycheck-mode)
