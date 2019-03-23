@@ -59,4 +59,14 @@
 (set-face-background 'font-lock-regexp-grouping-backslash "green3")
 (set-face-background 'font-lock-regexp-grouping-construct "green")
 
+;;; modeline
+(require 'diminish)
+(eval-after-load "init" '(diminish 'undo-tree-mode))
+(eval-after-load "init" '(diminish 'helm-mode))
+(eval-after-load "init" '(diminish 'abbrev-mode))
+(eval-after-load "init" '(diminish 'auto-revert-mode))
+(eval-after-load "50_develop" '(diminish 'irony-mode))
+(eval-after-load "50_develop" '(diminish 'eldoc-mode))
+(eval-after-load "50_develop" '(diminish 'company-mode))
+(eval-after-load "50_develop" '(diminish 'volatile-highlights-mode))
 
