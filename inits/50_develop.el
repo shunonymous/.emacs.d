@@ -84,6 +84,16 @@
 (cmake-ide-setup)
 (global-set-key (kbd "C-S-b") 'cmake-ide-compile)
 
+;; Indent guide
+(require 'highlight-indent-guides)
+(setq highlight-indent-guides-method 'character)
+(setq highlight-indent-guides-auto-character-face-perc 20)
+(setq highlight-indent-guides-auto-stack-character-face-perc 30)
+(setq highlight-indent-guides-auto-top-character-face-perc 40)
+(setq highlight-indent-guides-responsive 'stack)
+(setq highlight-indent-guides-delay 0)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
 ;; (defun setup-servers ()
 ;;  "Setup or update irony and rdm."
 ;;   (interactive)
