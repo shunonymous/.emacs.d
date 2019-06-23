@@ -83,6 +83,7 @@
 (require 'rtags)
 (cmake-ide-setup)
 (global-set-key (kbd "C-S-b") 'cmake-ide-compile)
+(global-set-key (kbd "<f12>") 'rtags-find-symbol)
 
 ;; Indent guide
 (require 'highlight-indent-guides)
@@ -93,6 +94,9 @@
 (setq highlight-indent-guides-responsive 'stack)
 (setq highlight-indent-guides-delay 0)
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
+;; Android
+(require 'android-mode)
 
 ;; (defun setup-servers ()
 ;;  "Setup or update irony and rdm."
