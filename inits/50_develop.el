@@ -85,6 +85,10 @@
 (global-set-key (kbd "C-S-b") 'cmake-ide-compile)
 (global-set-key (kbd "<f12>") 'rtags-find-symbol)
 
+;;; realgud
+(require 'realgud)
+(require 'realgud-lldb)
+
 ;; Indent guide
 (require 'highlight-indent-guides)
 (setq highlight-indent-guides-method 'character)
