@@ -1,8 +1,10 @@
 ;;; Theme
-(load-theme 'cherry-blossom t)
-;;; Override inactive line string color to improve visibility
-(set-face-attribute 'mode-line-inactive nil
-		    :foreground "gray35")
+(use-package cherry-blossom-theme
+  :init (load-theme 'cherry-blossom t)
+  ;;; Override inactive line string color to improve visibility
+  :config (set-face-attribute 'mode-line-inactive nil
+			      :foreground "gray35"))
+
 
 ;;; Disable menu-bar and tool-bar (when GUI)
 (tool-bar-mode 0)
@@ -28,14 +30,14 @@
 	      ))))
 
 ;;; highlights
-(require 'volatile-highlights)
-(volatile-highlights-mode t)
-
-(global-hl-line-mode t)
+(use-package volatile-highlights
+  :config
+  (volatile-highlights-mode t)
+  (global-hl-line-mode t))
 
 ;;; powerline
-(require 'powerline)
-(powerline-default-theme)
+(use-package powerline
+  :config (powerline-default-theme))
 
 ;;; Display time
 (setq display-time-24hr-format t)
@@ -60,13 +62,14 @@
 (set-face-background 'font-lock-regexp-grouping-construct "green")
 
 ;;; modeline
-(require 'diminish)
-(eval-after-load "init" '(diminish 'undo-tree-mode))
-(eval-after-load "init" '(diminish 'helm-mode))
-(eval-after-load "init" '(diminish 'abbrev-mode))
-(eval-after-load "init" '(diminish 'auto-revert-mode))
-(eval-after-load "50_develop" '(diminish 'irony-mode))
-(eval-after-load "50_develop" '(diminish 'eldoc-mode))
-(eval-after-load "50_develop" '(diminish 'company-mode))
-(eval-after-load "50_develop" '(diminish 'volatile-highlights-mode))
-
+(use-package diminish
+  :config
+  (eval-after-load "init" '(diminish 'undo-tree-mode))
+  (eval-after-load "init" '(diminish 'helm-mode))
+  (eval-after-load "init" '(diminish 'abbrev-mode))
+  (eval-after-load "init" '(diminish 'auto-revert-mode))
+  (eval-after-load "50_develop" '(diminish 'irony-mode))
+  (eval-after-load "50_develop" '(diminish 'eldoc-mode))
+  (eval-after-load "50_develop" '(diminish 'company-mode))
+  (eval-after-load "50_develop" '(diminish 'volatile-highlights-mode))
+  )

@@ -1,10 +1,10 @@
 ;;; electric pair mode
-(require 'elec-pair)
-(electric-pair-mode t)
+(use-package elec-pair
+  :config (electric-pair-mode t))
 
 ;;; Enable rainbow-delimiters-mode
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(use-package rainbow-delimiters
+  :hook prog-mode)
 
 ;;; Highlight pare delimiters on cursor
 (show-paren-mode 1)

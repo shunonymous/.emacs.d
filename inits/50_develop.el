@@ -1,13 +1,14 @@
-; Settings for programming, mainly C++
+;; Settings for programming, mainly C++
 
 ;; dashboard
-(require 'dashboard)
-(dashboard-setup-startup-hook)
-(setq dashboard-items '((recents  . 5)
-                        (bookmarks . 5)
-                        (projects . 8)
-                        (agenda . 5)
-                        (registers . 5)))
+(use-package dashboard
+  :init
+  (dashboard-setup-startup-hook)
+  (setq dashboard-items '((recents  . 5)
+			  (bookmarks . 5)
+			  (projects . 8)
+			  (agenda . 5)
+			  (registers . 5))))
 
 ;; If C++ mode, set indent mode as stroustrup
 (add-hook 'c++-mode-hook
@@ -15,92 +16,103 @@
 	     (c-set-style "stroustrup")))
 
 ;; magit
-(require 'magit)
-(global-set-key (kbd "C-x g") 'magit-status)
+(use-package magit
+  :bind ("C-x g" . magit-status)
+  :commands (magit-init))
+
 
 ;; Settings for company-mode
-(require 'company)
-(global-company-mode 1)
+(use-package company
+  :config
+  (global-company-mode 1)
+  ;;; No auto popup
+  (setq company-idle-delay nil)
 
-;;; No auto popup
-(setq company-idle-delay nil)
+  ;;; Loop selection
+  (setq company-selection-wrap-around t)
 
-;;; Loop selection
-(setq company-selection-wrap-around t)
+  ;;; Colors
+  (set-face-attribute 'company-tooltip nil
+		      :foreground "black" :background "lightgrey")
+  (set-face-attribute 'company-tooltip-common nil
+		      :foreground "black" :background "lightgrey")
+  (set-face-attribute 'company-tooltip-common-selection nil
+		      :foreground "white" :background "steelblue")
+  (set-face-attribute 'company-tooltip-selection nil
+		      :foreground "black" :background "steelblue")
+  (set-face-attribute 'company-preview-common nil
+		      :background nil :foreground "lightgrey" :underline t)
+  (set-face-attribute 'company-scrollbar-fg nil
+		      :background "orange")
+  (set-face-attribute 'company-scrollbar-bg nil
+		      :background "gray40")
 
-;;; Colors
-(set-face-attribute 'company-tooltip nil
-                    :foreground "black" :background "lightgrey")
-(set-face-attribute 'company-tooltip-common nil
-                    :foreground "black" :background "lightgrey")
-(set-face-attribute 'company-tooltip-common-selection nil
-                    :foreground "white" :background "steelblue")
-(set-face-attribute 'company-tooltip-selection nil
-                    :foreground "black" :background "steelblue")
-(set-face-attribute 'company-preview-common nil
-                    :background nil :foreground "lightgrey" :underline t)
-(set-face-attribute 'company-scrollbar-fg nil
-                    :background "orange")
-(set-face-attribute 'company-scrollbar-bg nil
-                    :background "gray40")
+  ;;; Keybinds
+  ;;;; Wrapper for tab key
+  ;;;; If completion candidate is exists, launch company-completion.
+  ;;;; Otherwise, indent.
+  (define-key company-mode-map (kbd "<tab>") 'company-indent-or-complete-common)
+  (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
+  (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
 
-;;; Keybinds
-;;;; Wrapper for tab key
-;;;; If completion candidate is exists, launch company-completion.
-;;;; Otherwise, indent.
-(define-key company-mode-map (kbd "<tab>") 'company-indent-or-complete-common)
-(define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
-(define-key company-active-map (kbd "<backtab>") 'company-select-previous)
+  ;;;; Select suggestions by C-n and C-p.
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-search-map (kbd "C-n") 'company-select-next)
+  (define-key company-search-map (kbd "C-p") 'company-select-previous))
 
-;;;; Select suggestions by C-n and C-p.
-(define-key company-active-map (kbd "C-n") 'company-select-next)
-(define-key company-active-map (kbd "C-p") 'company-select-previous)
-(define-key company-search-map (kbd "C-n") 'company-select-next)
-(define-key company-search-map (kbd "C-p") 'company-select-previous)
 
 ;;; Company Backends.
-(require 'irony)
-(require 'company-c-headers)
-(require 'company-cmake)
-(add-hook 'c-mode-common-hook 'irony-mode)
-(add-to-list 'company-backends 'company-irony)
-(add-to-list 'company-backends 'company-c-headers)
-(add-to-list 'company-backend 'company-cmake)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-(add-to-list 'company-c-headers-path-system "/usr/include/c++/v1/")
+(use-package irony
+  :hook c-mode-common
+  :config
+  (add-to-list 'company-backends 'company-irony)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+(use-package company-c-headers
+  :hook c-mode-common
+  :config
+  (add-to-list 'company-backends 'company-c-headers)
+  (add-to-list 'company-c-headers-path-system "/usr/include/c++/v1/"))
+(use-package company-cmake
+  :config (add-to-list 'company-backend 'company-cmake))
 
-;;; Eldoc
-(require 'irony)
-(add-hook 'c-mode-common-hook 'irony-eldoc)
+(use-package irony-eldoc
+  :hook c-mode-common)
 
 ;; flycheck
-(require 'flycheck)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
-(add-hook 'c-mode-common-hook 'flycheck-mode)
+(use-package flycheck
+  :config (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
+  :hook prog-mode)
 
 ;; cmake-ide
-(require 'rtags)
-(cmake-ide-setup)
-(global-set-key (kbd "C-S-b") 'cmake-ide-compile)
-(global-set-key (kbd "<f12>") 'rtags-find-symbol)
+(use-package cmake-ide
+  :config (cmake-ide-setup)
+  :hook prog-mode
+  :bind ("C-S-b" . cmake-ide-compile))
+
+(use-package rtags
+  :bind ("<f12>" . rtags-find-symbol)
+  :hook c-mode-common)
 
 ;;; realgud
-(require 'realgud)
-(require 'realgud-lldb)
+(use-package realgud
+  :hook prog-mode)
+(use-package realgud-lldb
+  :hook c-mode-common)
 
 ;; Indent guide
-(require 'highlight-indent-guides)
-(setq highlight-indent-guides-method 'character)
-(setq highlight-indent-guides-auto-character-face-perc 20)
-(setq highlight-indent-guides-auto-stack-character-face-perc 30)
-(setq highlight-indent-guides-auto-top-character-face-perc 40)
-(setq highlight-indent-guides-responsive 'stack)
-(setq highlight-indent-guides-delay 0)
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(use-package highlight-indent-guides
+  :hook prog-mode
+  :config
+  (setq highlight-indent-guides-method 'character)
+  (setq highlight-indent-guides-auto-character-face-perc 20)
+  (setq highlight-indent-guides-auto-stack-character-face-perc 30)
+  (setq highlight-indent-guides-auto-top-character-face-perc 40)
+  (setq highlight-indent-guides-responsive 'stack)
+  (setq highlight-indent-guides-delay 0))
 
 ;; Android
-(require 'android-mode)
+(use-package android-mode)
 
 ;; (defun setup-servers ()
 ;;  "Setup or update irony and rdm."
