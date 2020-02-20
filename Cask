@@ -42,6 +42,10 @@
 (depends-on "android-mode")
 (depends-on "lispxmp")
 (depends-on "auto-async-byte-compile")
+(depends-on "realgud")
+(depends-on "realgud-lldb")
+(depends-on "rainbow-delimiters")
 
-;;; System management
+;;; System administration
 (depends-on "sudo-edit")
+(depends-on "pkgbuild-mode")
