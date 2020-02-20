@@ -3,7 +3,7 @@
   :config (electric-pair-mode t))
 
 ;;; Enable rainbow-delimiters-mode
-(use-package rainbow-delimiters
+(use-package rainbow-delimiters-mode
   :hook prog-mode)
 
 ;;; Highlight pare delimiters on cursor

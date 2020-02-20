@@ -80,30 +80,22 @@
   :hook c-mode-common)
 
 ;; flycheck
-(use-package flycheck
+(use-package flycheck-mode
   :config (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
   :hook prog-mode)
 
 ;; cmake-ide
 (use-package cmake-ide
-  :config (cmake-ide-setup)
-  :hook prog-mode
+  :hook (prog-mode . cmake-ide-setup)
   :bind ("C-S-b" . cmake-ide-compile))
-
 (use-package rtags
   :bind ("<f12>" . rtags-find-symbol)
-  :hook c-mode-common)
-
-;;; realgud
-(use-package realgud
-  :hook prog-mode)
-(use-package realgud-lldb
-  :hook c-mode-common)
+  )
 
 ;; Indent guide
-(use-package highlight-indent-guides
+(use-package highlight-indent-guides-mode
   :hook prog-mode
-  :config
+  :init
   (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-auto-character-face-perc 20)
   (setq highlight-indent-guides-auto-stack-character-face-perc 30)
