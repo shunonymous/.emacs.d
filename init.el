@@ -1,4 +1,8 @@
 ;;; shunonymous's emacs init.el
+;;; increase GC threshold
+(setq gc-cons-threshold (* 256 1024 1024))
+
+;;; Setup cask
 (require 'cask)
 (cask-initialize)
 
@@ -7,12 +11,9 @@
   (initchart-record-execution-time-of load file)
   (initchart-record-execution-time-of require feature))
 
+;;; misc configurations
 (use-package init-loader)
 (init-loader-load)
-
-;;; misc configurations
-;;; increase GC threshold
-(setq gc-cons-threshold (* 256 1024 1024))
 
 ;;; Kill generating backups
 (setq-default backup-inhibited t)
