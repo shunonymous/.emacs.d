@@ -13,6 +13,7 @@
 (depends-on "diminish")
 (depends-on "all-the-icons")
 (depends-on "ace-window")
+(depends-on "multiple-cursors")
 
 ;;;; ivy
 (depends-on "ivy")

@@ -15,6 +15,8 @@
 (use-package init-loader)
 (init-loader-load)
 
+(use-package multiple-cursors)
+
 ;;; Kill generating backups
 (setq-default backup-inhibited t)
 
