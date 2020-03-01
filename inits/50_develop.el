@@ -20,6 +20,9 @@
   :bind ("C-x g" . magit-status)
   :commands (magit-init))
 
+;;; git-gutter
+(use-package git-gutter
+  :config (global-git-gutter-mode t))
 
 ;; Settings for company-mode
 (use-package company
