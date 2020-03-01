@@ -11,11 +11,18 @@
 (depends-on "initchart" :git "https://github.com/yuttie/initchart")
 (depends-on "volatile-highlights")
 (depends-on "diminish")
+(depends-on "all-the-icons")
+(depends-on "ace-window")
 
 ;;;; ivy
 (depends-on "ivy")
 (depends-on "ivy-rich")
+(depends-on "ivy-posframe")
 (depends-on "counsel")
+
+;;;; all-the-icons
+(depends-on "all-the-icons-ivy-rich")
+(depends-on "all-the-icons-dired")
 
 ;;; Look and feel
 (depends-on "cherry-blossom-theme")
@@ -25,10 +32,13 @@
 (depends-on "yasnippet")
 (depends-on "open-junk-file")
 (depends-on "undo-tree")
+(depends-on "hydra")
+(depends-on "ivy-hydra")
 
 ;;; develop
 (depends-on "highlight-indent-guides")
 (depends-on "magit")
+(depends-on "git-gutter")
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
 (depends-on "projectile")
