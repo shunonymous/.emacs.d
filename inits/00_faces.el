@@ -54,22 +54,7 @@
 
 ;;; Font set
 (add-to-list 'default-frame-alist '(font . "Ubuntu Mono-10.5"))
-(cond ((string-match "^23\." emacs-version)
-       (cond (window-system
-	      (set-frame-font "Ubuntu Mono-10.5")
-	      (set-fontset-font
-	       (frame-parameter nil 'font)
-	       'japanese-jisx0208
-	       '("TakaoExGothic-5" . "unicode-bmp"))
-	      (set-fontset-font
-	       (frame-parameter nil 'font)
-	       'japanese-jisx0212
-	       '("TakaoExGothic-10" . "unicode-bmp"))
-	      (set-fontset-font
-	       (frame-parameter nil 'font)
-	       'mule-unicode-0100-24ff
-	       '("TakaoExGothic-10" . "unicode-bmp"))
-	      ))))
+(set-fontset-font t 'japanese-jisx0208 "TakaoPGothic")
 
 ;;; highlights
 (use-package volatile-highlights
