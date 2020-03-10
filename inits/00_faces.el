@@ -7,42 +7,34 @@
 
 ;;; ivy
 (use-package ivy
-  :ensure t
-  :init (ivy-mode t))
+  :config (ivy-mode t))
 (use-package counsel
-  :ensure t)
+  :bind (("C-x C-f" . counsel-find-file)
+	 ("M-x" . counsel-M-x)))
+(use-package swiper
+  :bind (("C-s" . swiper-isearch)
+	 ("C-r" . swiper-backword)))
 (use-package ivy-posframe
-  :ensure t
+  :after (ivy)
   :init
   (setq ivy-posframe-display-functions-alist
 	'((t . ivy-posframe-display-at-point)))
   (setq ivy-posframe-parameters
 	'((left-fringe . 8)
 	  (right-fringe . 8)))
-  (ivy-posframe-mode t)
   :config
+  (ivy-posframe-mode t)
   (set-face-attribute 'ivy-posframe nil :background "gray5"))
 (use-package all-the-icons-ivy-rich
-  :ensure t
+  :after (ivy ivy-posframe)
   :init
   (all-the-icons-ivy-rich-mode t)
   (setq all-the-icons-ivy-rich-icon-size 0.8))
 (use-package ivy-rich
-  :ensure t
   :after (all-the-icons-ivy-rich)
   :init
   (ivy-rich-mode t)
   (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
-(use-package counsel
-  :ensure t
-  :bind
-  ("C-x C-f" . counsel-find-file)
-  ("M-x" . counsel-M-x))
-(use-package swiper
-  :ensure t
-  :bind
-  ("C-s" . swiper-isearch)
-  ("C-r" . swiper-backword))
 
 (use-package hydra)
 (use-package ivy-hydra
@@ -92,7 +84,9 @@
 (use-package diminish
   :config
   (eval-after-load "init" '(diminish 'undo-tree-mode))
-  (eval-after-load "init" '(diminish 'helm-mode))
+  (eval-after-load "init" '(diminish 'ivy-mode))
+  (eval-after-load "init" '(diminish 'ivy-posframe-mode))
+  (eval-after-load "init" '(diminish 'git-gutter-mode))
   (eval-after-load "init" '(diminish 'abbrev-mode))
   (eval-after-load "init" '(diminish 'auto-revert-mode))
   (eval-after-load "50_develop" '(diminish 'irony-mode))

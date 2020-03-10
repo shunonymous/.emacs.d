@@ -6,10 +6,10 @@
 (require 'cask)
 (cask-initialize)
 
-(use-package initchart
-  :config
-  (initchart-record-execution-time-of load file)
-  (initchart-record-execution-time-of require feature))
+;; (use-package initchart
+;;   :config
+;;   (initchart-record-execution-time-of load file)
+;;   (initchart-record-execution-time-of require feature))
 
 ;;; misc configurations
 (use-package init-loader)
@@ -25,7 +25,7 @@
 
 ;;; Set Japanese IME
 (use-package mozc
-  :init (setq default-input-method "japanese-mozc"))
+  :custom (default-input-method "japanese-mozc"))
 
 ;;; Make junk file
 (use-package open-junk-file
@@ -37,4 +37,5 @@
 
 ;;; undo-tree
 (use-package undo-tree
-  :init (global-undo-tree-mode t))
+  :init (global-undo-tree-mode t)
+  :bind ("C-x u" . undo-tree-visualize))

@@ -48,6 +48,7 @@
 (depends-on "company-irony")
 (depends-on "company-c-headers")
 (depends-on "irony-eldoc")
+(depends-on "cmake-mode")
 (depends-on "cmake-ide")
 (depends-on "rtags")
 (depends-on "android-mode")

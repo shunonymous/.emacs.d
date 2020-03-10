@@ -65,18 +65,20 @@
   (define-key company-search-map (kbd "C-p") 'company-select-previous))
 
 
-;;; Company Backends.
+;; Company Backends.
 (use-package irony
-  :hook c-mode-common
+  :hook (c-mode-common . irony-mode)
+  :requires company
   :config
   (add-to-list 'company-backends 'company-irony)
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 (use-package company-c-headers
-  :hook c-mode-common
+  :requires company
   :config
   (add-to-list 'company-backends 'company-c-headers)
   (add-to-list 'company-c-headers-path-system "/usr/include/c++/v1/"))
 (use-package company-cmake
+  :requires company
   :config (add-to-list 'company-backend 'company-cmake))
 
 (use-package irony-eldoc
@@ -87,13 +89,14 @@
   :config (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
   :hook prog-mode)
 
-;; cmake-ide
-(use-package cmake-ide
-  :hook (prog-mode . cmake-ide-setup)
-  :bind ("C-S-b" . cmake-ide-compile))
+;;; cmake-ide
 (use-package rtags
-  :bind ("<f12>" . rtags-find-symbol)
-  )
+  :hook ((c-mode c++-mode) . rtags-start-process-unless-running)
+  :bind ("<f12>" . rtags-find-symbol))
+(use-package cmake-ide
+  :hook ((c-mode c++-mode) . cmake-ide-setup)
+  :config (cmake-ide-maybe-run-cmake)
+  :bind ("C-S-b" . cmake-ide-compile))
 
 ;; Indent guide
 (use-package highlight-indent-guides-mode
