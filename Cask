@@ -30,6 +30,7 @@
 (depends-on "powerline")
 
 ;;; Writing
+(depends-on "markdown-mode")
 (depends-on "yasnippet")
 (depends-on "open-junk-file")
 (depends-on "undo-tree")
