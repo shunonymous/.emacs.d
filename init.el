@@ -38,4 +38,7 @@
 ;;; undo-tree
 (use-package undo-tree
   :init (global-undo-tree-mode t)
-  :bind ("C-x u" . undo-tree-visualize))
+  :bind
+  ("C-x u" . undo-tree-visualize)
+  ("C-/" . undo-tree-undo)
+  ("C-S-/" . undo-tree-redo))
