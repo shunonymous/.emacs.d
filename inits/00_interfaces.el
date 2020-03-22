@@ -1,10 +1,3 @@
-;;; Theme
-(use-package cherry-blossom-theme
-  :init (load-theme 'cherry-blossom t)
-  ;;; Override inactive line string color to improve visibility
-  :config (set-face-attribute 'mode-line-inactive nil
-			      :foreground "gray35"))
-
 ;;; ivy
 (use-package ivy
   :config (ivy-mode t))
@@ -44,16 +37,6 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 
-;;; Font set
-(add-to-list 'default-frame-alist '(font . "Ubuntu Mono-10.5"))
-(set-fontset-font t 'japanese-jisx0208 "TakaoPGothic")
-
-;;; highlights
-(use-package volatile-highlights
-  :config
-  (volatile-highlights-mode t)
-  (global-hl-line-mode t))
-
 ;;; powerline
 (use-package powerline
   :config (powerline-default-theme))
@@ -65,20 +48,18 @@
 ;;; Display line numbers
 (global-display-line-numbers-mode t)
 
-;;; Store recently opened files
-(recentf-mode 1)
+;; dashboard
+(use-package dashboard
+  :init
+  (dashboard-setup-startup-hook)
+  (setq dashboard-items '((recents  . 5)
+			  (bookmarks . 5)
+			  (projects . 8)
+			  (agenda . 5)
+			  (registers . 5))))
 
-;;; hippie-expand
-(setq hippie-expand-try-functions-list
-      '(try-complete-file-name-partially
-        try-complete-file-name
-        try-expand-dabbrev
-        try-expand-dabbrev-all-buffers
-        try-expand-dabbrev-from-kill))
-
-;;; Regexp grouping color
-(set-face-background 'font-lock-regexp-grouping-backslash "green3")
-(set-face-background 'font-lock-regexp-grouping-construct "green")
+;;; Kill bells
+(setq ring-bell-function 'ignore)
 
 ;;; modeline
 (use-package diminish

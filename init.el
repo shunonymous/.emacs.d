@@ -15,17 +15,8 @@
 (use-package init-loader)
 (init-loader-load)
 
-(use-package multiple-cursors)
-
 ;;; Kill generating backups
 (setq-default backup-inhibited t)
-
-;;; Kill bells
-(setq ring-bell-function 'ignore)
-
-;;; Set Japanese IME
-(use-package mozc
-  :custom (default-input-method "japanese-mozc"))
 
 ;;; Make junk file
 (use-package open-junk-file
@@ -35,10 +26,3 @@
 (use-package sudo-edit
   :bind ("C-c C-r" . sudo-edit))
 
-;;; undo-tree
-(use-package undo-tree
-  :init (global-undo-tree-mode t)
-  :bind
-  ("C-x u" . undo-tree-visualize)
-  ("C-/" . undo-tree-undo)
-  ("C-S-/" . undo-tree-redo))
