@@ -3,6 +3,9 @@
 	  '(lambda()
 	     (c-set-style "stroustrup")))
 
+;; Disallow tab
+(setq indent-tabs-mode nil)
+
 ;; flycheck
 (use-package flycheck-mode
   :config (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
