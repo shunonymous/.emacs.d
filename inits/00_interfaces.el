@@ -70,7 +70,6 @@
   (eval-after-load "init" '(diminish 'git-gutter-mode))
   (eval-after-load "init" '(diminish 'abbrev-mode))
   (eval-after-load "init" '(diminish 'auto-revert-mode))
-  (eval-after-load "50_develop" '(diminish 'irony-mode))
   (eval-after-load "50_develop" '(diminish 'eldoc-mode))
   (eval-after-load "50_develop" '(diminish 'company-mode))
   (eval-after-load "50_develop" '(diminish 'volatile-highlights-mode))

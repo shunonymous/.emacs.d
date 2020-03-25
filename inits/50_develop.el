@@ -12,14 +12,25 @@
   :hook prog-mode)
 
 ;;; cmake-ide
-(use-package rtags
-  :hook ((c-mode c++-mode) . rtags-start-process-unless-running)
-  :bind ("<f12>" . rtags-find-symbol))
 (use-package cmake-ide
   :hook ((c-mode c++-mode) . cmake-ide-setup)
   :config (cmake-ide-maybe-run-cmake)
   :bind ("C-S-b" . cmake-ide-compile))
 
+;;; lsp-mode
+(use-package lsp-mode
+  :hook (prog-mode . lsp)
+  :commands lsp)
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+(use-package lsp-ivy
+  :after lsp-mode)
+
+;; Company Backends.
+(use-package company-lsp
+  :requires (company lsp)
+  :commands company-lsp
+  :config (add-to-list 'company-backends 'company-lsp))
 
 ;; Android
 (use-package android-mode)

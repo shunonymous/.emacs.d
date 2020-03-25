@@ -45,23 +45,3 @@
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
   (define-key company-search-map (kbd "C-n") 'company-select-next)
   (define-key company-search-map (kbd "C-p") 'company-select-previous))
-
-
-;; Company Backends.
-(use-package irony
-  :hook (c-mode-common . irony-mode)
-  :requires company
-  :config
-  (add-to-list 'company-backends 'company-irony)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-(use-package company-c-headers
-  :requires company
-  :config
-  (add-to-list 'company-backends 'company-c-headers)
-  (add-to-list 'company-c-headers-path-system "/usr/include/c++/v1/"))
-(use-package company-cmake
-  :requires company
-  :config (add-to-list 'company-backend 'company-cmake))
-
-(use-package irony-eldoc
-  :hook c-mode-common)
