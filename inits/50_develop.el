@@ -13,7 +13,7 @@
 
 ;;; cmake-ide
 (use-package cmake-ide
-  :hook ((c-mode c++-mode) . cmake-ide-setup)
+  :hook ((c-mode c++-mode cmake-mode) . cmake-ide-setup)
   :config (cmake-ide-maybe-run-cmake)
   :bind ("C-S-b" . cmake-ide-compile))
 
