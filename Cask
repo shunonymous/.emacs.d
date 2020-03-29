@@ -1,5 +1,6 @@
 (source gnu)
-(source melpa "https://www.mirrorservice.org/sites/melpa.org/packages/")
+(source melpa)
+(source melpa-mirror "https://www.mirrorservice.org/sites/melpa.org/packages/")
 (source org)
 
 ;;; Emacs
