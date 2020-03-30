@@ -58,6 +58,7 @@
 (depends-on "lsp-mode")
 (depends-on "lsp-ui")
 (depends-on "lsp-ivy")
+(depends-on "dap-mode")
 (depends-on "company-lsp")
 (depends-on "clang-format")
 

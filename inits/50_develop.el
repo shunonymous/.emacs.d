@@ -26,6 +26,17 @@
 (use-package lsp-ivy
   :after lsp-mode)
 
+;;; dap-mode
+(use-package dap-mode
+  :hook prog-mode
+  :config
+  (dap-mode t))
+(use-package dap-ui
+  :after dap-mode
+  :config
+  (dap-ui-mode t)
+  (dap-ui-controls-mode t))
+
 ;; Company Backends.
 (use-package company-lsp
   :requires (company lsp)
