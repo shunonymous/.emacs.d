@@ -58,6 +58,18 @@
 			  (agenda . 5)
 			  (registers . 5))))
 
+;;; neotree
+(use-package neotree
+  :bind ("<f8>" . neotree-toggle)
+  :custom (neo-theme 'icons))
+
+;;; which-key
+(use-package which-key
+  :hook (after-init . which-key-mode))
+
+;;; amx
+(use-package amx)
+
 ;;; Kill bells
 (setq ring-bell-function 'ignore)
 

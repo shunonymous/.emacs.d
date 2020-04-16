@@ -15,6 +15,9 @@
 (depends-on "all-the-icons")
 (depends-on "ace-window")
 (depends-on "multiple-cursors")
+(depends-on "neotree")
+(depends-on "which-key")
+(depends-on "amx")
 
 ;;;; ivy
 (depends-on "ivy")
