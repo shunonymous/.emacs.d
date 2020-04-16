@@ -6,10 +6,15 @@
 ;; Disallow tab
 (setq indent-tabs-mode nil)
 
+(use-package elec-pair
+  :config (electric-pair-mode t))
+
+;; projectile
+(use-package projectile)
+
 ;; flycheck
-(use-package flycheck-mode
-  :config (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
-  :hook prog-mode)
+(use-package flycheck
+  :hook (prog-mode . flycheck-mode))
 
 ;;; cmake-ide
 (use-package cmake-ide
@@ -30,10 +35,7 @@
 (use-package dap-mode
   :hook prog-mode
   :config
-  (dap-mode t))
-(use-package dap-ui
-  :after dap-mode
-  :config
+  (dap-mode t)
   (dap-ui-mode t)
   (dap-ui-controls-mode t))
 

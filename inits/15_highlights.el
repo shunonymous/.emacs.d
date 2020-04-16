@@ -3,8 +3,8 @@
 (set-face-background 'font-lock-regexp-grouping-construct "green")
 
 ;; Indent guide
-(use-package highlight-indent-guides-mode
-  :hook prog-mode
+(use-package highlight-indent-guides
+  :hook (prog-mode . highlight-indent-guides-mode)
   :init
   (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-auto-character-face-perc 20)
@@ -18,8 +18,8 @@
   :config (electric-pair-mode t))
 
 ;;; Enable rainbow-delimiters-mode
-(use-package rainbow-delimiters-mode
-  :hook prog-mode)
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 ;;; Highlight pare delimiters on cursor
 (show-paren-mode 1)
