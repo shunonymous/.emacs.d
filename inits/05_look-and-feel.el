@@ -14,4 +14,7 @@
 (use-package volatile-highlights
   :config
   (volatile-highlights-mode t)
-  (global-hl-line-mode t))
+  (global-hl-line-mode t)
+  (vhl/install-extension 'undo-tree)
+  :custom-face
+  (vhl/default-face ((nil (:background "HotPink2")))))
