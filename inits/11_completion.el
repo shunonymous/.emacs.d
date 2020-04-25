@@ -8,6 +8,7 @@
 
 ;; Settings for company-mode
 (use-package company
+  :diminish company-mode
   :config
   (global-company-mode 1)
   ;;; No auto popup

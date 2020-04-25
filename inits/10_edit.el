@@ -1,5 +1,6 @@
 ;;; undo-tree
 (use-package undo-tree
+  :diminish undo-tree-mode
   :init (global-undo-tree-mode t)
   :bind
   ("C-x u" . undo-tree-visualize)
@@ -22,4 +23,5 @@
 
 ;;; git-gutter
 (use-package git-gutter
+  :diminish git-gutter-mode
   :config (global-git-gutter-mode t))

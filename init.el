@@ -20,6 +20,9 @@
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
+;;; for diminish
+(use-package diminish)
+
 ;; (use-package initchart
 ;;   :config
 ;;   (initchart-record-execution-time-of load file)

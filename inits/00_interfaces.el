@@ -1,5 +1,6 @@
 ;;; ivy
 (use-package ivy
+  :diminish ivy-mode
   :config (ivy-mode t))
 (use-package counsel
   :bind (("C-x C-f" . counsel-find-file)
@@ -8,6 +9,7 @@
   :bind (("C-s" . swiper-isearch)
 	 ("C-r" . swiper-backword)))
 (use-package ivy-posframe
+  :diminish ivy-posframe-mode
   :after (ivy)
   :init
   (setq ivy-posframe-display-functions-alist
@@ -65,6 +67,7 @@
 
 ;;; which-key
 (use-package which-key
+  :diminish which-key-mode
   :hook (after-init . which-key-mode))
 
 ;;; amx
@@ -72,17 +75,3 @@
 
 ;;; Kill bells
 (setq ring-bell-function 'ignore)
-
-;;; modeline
-(use-package diminish
-  :config
-  (eval-after-load "init" '(diminish 'undo-tree-mode))
-  (eval-after-load "init" '(diminish 'ivy-mode))
-  (eval-after-load "init" '(diminish 'ivy-posframe-mode))
-  (eval-after-load "init" '(diminish 'git-gutter-mode))
-  (eval-after-load "init" '(diminish 'abbrev-mode))
-  (eval-after-load "init" '(diminish 'auto-revert-mode))
-  (eval-after-load "50_develop" '(diminish 'eldoc-mode))
-  (eval-after-load "50_develop" '(diminish 'company-mode))
-  (eval-after-load "50_develop" '(diminish 'volatile-highlights-mode))
-  )
