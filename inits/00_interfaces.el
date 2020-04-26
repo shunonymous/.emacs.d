@@ -1,3 +1,13 @@
+;;; posframe
+(use-package posframe
+  :config
+  (setq posframe-arghandler #'my-posframe-arghandler)
+  (defun my-posframe-arghandler (buffer-or-neme argname value)
+    (let ((info
+	   '(:left-fringe 8 :right-fringe 8 :internal-border-width 1 :poshandler posframe-poshandler-point-top-left-corner :background-color "gray5")))
+      (or (plist-get info argname) value)
+    )))
+  
 ;;; ivy
 (use-package ivy
   :diminish ivy-mode
@@ -17,12 +27,8 @@
   :init
   (setq ivy-posframe-display-functions-alist
 	'((t . ivy-posframe-display-at-point)))
-  (setq ivy-posframe-parameters
-	'((left-fringe . 8)
-	  (right-fringe . 8)))
   :config
-  (ivy-posframe-mode t)
-  (set-face-attribute 'ivy-posframe nil :background "gray5"))
+  (ivy-posframe-mode t))
 (use-package all-the-icons-ivy-rich
   :after (ivy ivy-posframe)
   :init
@@ -72,6 +78,8 @@
 (use-package which-key
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
+(use-package which-key-posframe
+  :config (which-key-posframe-mode))
 
 ;;; amx
 (use-package amx)
