@@ -40,10 +40,6 @@
   (ivy-rich-mode t)
   (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
 
-(use-package hydra)
-(use-package ivy-hydra
-  :after (ivy hydra))
-
 ;;; Disable menu-bar and tool-bar (when GUI)
 (tool-bar-mode 0)
 (menu-bar-mode 0)
