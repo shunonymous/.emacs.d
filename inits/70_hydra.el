@@ -23,8 +23,6 @@
     ("o" make-frame "open other frame")
     )
   )
-(use-package ivy-hydra
-  :after (ivy hydra))
 (use-package hydra-posframe
   :straight (hydra-posframe :type git :host github :repo "Ladicle/hydra-posframe")
   :hook (after-init . hydra-posframe-enable))
