@@ -25,6 +25,9 @@
 ;;; lsp-mode
 (use-package lsp-mode
   :hook (prog-mode . lsp)
+  :init
+  (setq lsp-keymap-prefix "C-M l")
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   :commands lsp)
 (use-package lsp-ui
   :commands lsp-ui-mode)
