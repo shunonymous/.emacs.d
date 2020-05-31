@@ -48,5 +48,6 @@
   :commands company-lsp
   :config (add-to-list 'company-backends 'company-lsp))
 
-;; Android
+;; misc
 (use-package android-mode)
+(use-package cmake-mode)
