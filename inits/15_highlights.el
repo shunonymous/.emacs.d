@@ -11,7 +11,7 @@
   (setq highlight-indent-guides-auto-stack-character-face-perc 30)
   (setq highlight-indent-guides-auto-top-character-face-perc 40)
   (setq highlight-indent-guides-responsive 'stack)
-  (setq highlight-indent-guides-delay 0))
+  (setq highlight-indent-guides-delay 0.5))
 
 ;;; electric pair mode
 (use-package elec-pair
