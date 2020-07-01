@@ -6,7 +6,7 @@
   (defhydra hydra-editing (global-map "s-t")
     "Bind for editing"
     ("s" replace-string "string")
-    ("r" replace-regexp "regexp")
+    ("r" vr/replace "regexp")
     )
   (defhydra hydra-frame-and-window (global-map "s-f")
     "Control frame and window"

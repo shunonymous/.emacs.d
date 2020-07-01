@@ -43,5 +43,9 @@
 (use-package sudo-edit
   :bind ("C-c C-r" . sudo-edit))
 
+;;; ripgrep
 (use-package rg
   :commands rg)
+
+;;; visual-regexp
+(use-package visual-regexp)
