@@ -19,7 +19,8 @@
 ;; magit
 (use-package magit
   :bind ("C-x g" . magit-status)
-  :commands (magit-init))
+  :commands (magit-init)
+  :custom (magit-diff-refine-hunk 'all))
 
 ;;; git-gutter
 (use-package git-gutter
