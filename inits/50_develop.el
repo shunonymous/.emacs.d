@@ -6,9 +6,6 @@
 ;; Disallow tab
 (setq indent-tabs-mode nil)
 
-(use-package elec-pair
-  :config (electric-pair-mode t))
-
 ;; projectile
 (use-package projectile)
 
