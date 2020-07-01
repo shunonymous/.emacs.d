@@ -1,13 +1,3 @@
-;;; posframe
-(use-package posframe
-  :config
-  (setq posframe-arghandler #'my-posframe-arghandler)
-  (defun my-posframe-arghandler (buffer-or-neme argname value)
-    (let ((info
-	   '(:left-fringe 8 :right-fringe 8 :internal-border-width 1 :poshandler posframe-poshandler-point-top-left-corner :background-color "gray5")))
-      (or (plist-get info argname) value)
-    )))
-  
 ;;; ivy
 (use-package ivy
   :diminish ivy-mode
@@ -21,16 +11,8 @@
 (use-package swiper
   :bind (("C-s" . swiper-isearch)
 	 ("C-r" . swiper-backword)))
-(use-package ivy-posframe
-  :diminish ivy-posframe-mode
-  :after (ivy)
-  :init
-  (setq ivy-posframe-display-functions-alist
-	'((t . ivy-posframe-display-at-point)))
-  :config
-  (ivy-posframe-mode t))
 (use-package all-the-icons-ivy-rich
-  :after (ivy ivy-posframe)
+  :after (ivy)
   :init
   (all-the-icons-ivy-rich-mode t)
   (setq all-the-icons-ivy-rich-icon-size 0.8))
@@ -74,8 +56,6 @@
 (use-package which-key
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
-(use-package which-key-posframe
-  :config (which-key-posframe-mode))
 
 ;;; amx
 (use-package amx)
