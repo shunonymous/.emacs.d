@@ -4,7 +4,8 @@
   (setq posframe-arghandler #'my-posframe-arghandler)
   (defun my-posframe-arghandler (buffer-or-neme argname value)
     (let ((info
-	   '(:left-fringe 8 :right-fringe 8 :internal-border-width 1 :poshandler posframe-poshandler-point-top-left-corner :background-color "gray5")))
+	   '(
+	     :left-fringe 8 :right-fringe 8 :internal-border-width 1 :poshandler posframe-poshandler-window-bottom-left-corner :background-color "gray5")))
       (or (plist-get info argname) value)
     )))
   
@@ -26,7 +27,7 @@
   :after (ivy)
   :init
   (setq ivy-posframe-display-functions-alist
-	'((t . ivy-posframe-display-at-point)))
+        '((t . ivy-posframe-display-at-point)))
   :config
   (ivy-posframe-mode t))
 (use-package all-the-icons-ivy-rich
