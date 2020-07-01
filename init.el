@@ -42,3 +42,6 @@
 ;;; sudo-edit
 (use-package sudo-edit
   :bind ("C-c C-r" . sudo-edit))
+
+(use-package rg
+  :commands rg)
