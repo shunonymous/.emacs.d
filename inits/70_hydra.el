@@ -2,7 +2,6 @@
   :bind
   ("s-t" . hydra-editing/body)
   ("s-f" . hydra-frame-and-window/body)
-  ("s-d" . dap-hydra)
   :init
   (defhydra hydra-editing (global-map "s-t")
     "Bind for editing"

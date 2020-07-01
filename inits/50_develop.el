@@ -33,11 +33,19 @@
 
 ;;; dap-mode
 (use-package dap-mode
-  :hook prog-mode
+  ;; :hook (prog-mode . dap-mode)
+  :bind ("s-d" . dap-hydra)
+  ;; :requires (hydra dap-hydra)
+  :commands (dap-debug dap-debug-edit-template)
   :config
+  (add-hook 'dap-stopped-hook (lambda (arg) (call-interactively #'dap-hydra)))
   (dap-mode t)
   (dap-ui-mode t)
-  (dap-ui-controls-mode t))
+  (dap-ui-controls-mode t)
+  (require 'dap-lldb)
+  (require 'dap-go)
+  (require 'dap-chrome)
+  (require 'dap-python))
 
 ;; Company Backends.
 (use-package company-lsp
