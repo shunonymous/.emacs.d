@@ -54,5 +54,6 @@
   :config (add-to-list 'company-backends 'company-lsp))
 
 ;; misc
+(use-package go-mode)
 (use-package android-mode)
 (use-package cmake-mode)
