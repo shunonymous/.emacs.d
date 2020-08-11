@@ -26,3 +26,7 @@
 (use-package git-gutter
   :diminish git-gutter-mode
   :config (global-git-gutter-mode t))
+
+;;; edit-server
+(use-package edit-server
+  :config (edit-server-start))
