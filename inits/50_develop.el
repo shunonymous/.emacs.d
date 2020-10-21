@@ -57,3 +57,5 @@
 (use-package go-mode)
 (use-package android-mode)
 (use-package cmake-mode)
+(use-package dtrt-indent
+  :config (dtrt-indent-global-mode t))
