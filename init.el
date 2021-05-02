@@ -63,8 +63,30 @@
 (leaf leaf
   :doc "Always enable ensure"
   :custom (leaf-defaults . '(:ensure t))
-  :config (leaf leaf-tree)
-  )
+  :config (leaf leaf-tree))
+
+(leaf ivy
+  :blackout t
+  :leaf-defer nil
+  :custom ((ivy-use-virtual-buffers . t)
+	   (enable-recursive-minibuffers . t))
+  :global-minor-mode t
+  :config
+  (leaf swiper
+    :bind (("C-s" . swiper-isearch)))
+  (leaf counsel
+    :global-minor-mode t
+    :bind (("C-x C-f" . counsel-find-file)
+	   ("C-x C-r" . counse-recentf)
+	   ("M-x" . counsel-M-x)
+	   ("M-y" .  counsel-yank-pop)))
+  (leaf ivy-rich
+    :global-minor-mode t
+    :init (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
+    :config
+    (leaf all-the-icons-ivy-rich
+      :global-minor-mode t
+      :custom ((all-the-icons-ivy-rich-icon-size . 0.8)))))
 
 ;;; sudo-edit
 (leaf sudo-edit
