@@ -23,11 +23,6 @@
 
 ;;; Code:
 
-;;; Increase GC threshold
-(setq gc-cons-threshold (* 256 1024 1024))
-;;; Increase the amount of data which Emacs reads from the process
-(setq read-process-output-max (* 1024 1024))
-
 (eval-and-compile
   (customize-set-variable
    'package-archives '(("org"   . "https://orgmode.org/elpa/")
@@ -50,17 +45,30 @@
     ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
 
-;;; Always enable ensure
-(custom-set-variables '(leaf-defaults '(:ensure t)))
+(leaf performance
+  :doc "Configuration for increase performance"
+  :ensure nil
+  :config
+  ;;; Increase GC threshold
+  (setq gc-cons-threshold (* 256 1024 1024))
+  ;;; Increase the amount of data which Emacs reads from the process
+  (setq read-process-output-max (* 1024 1024))
+  )
 
-(leaf leaf-tree)
+(leaf backups
+  :doc "Kill generating backups"
+  :ensure nil
+  :custom (backup-inhibited . t))
 
-;;; Kill generating backups
-(setq-default backup-inhibited t)
+(leaf leaf
+  :doc "Always enable ensure"
+  :custom (leaf-defaults . '(:ensure t))
+  :config (leaf leaf-tree)
+  )
 
 ;;; sudo-edit
 (leaf sudo-edit
-      :bind ("C-c C-r" . sudo-edit))
+  :bind ("C-c C-r" . sudo-edit))
 
 ;;; ripgrep
 (leaf rg
