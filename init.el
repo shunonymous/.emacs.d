@@ -50,6 +50,12 @@
   :custom (leaf-defaults . '(:ensure t))
   :config (leaf leaf-tree))
 
+(leaf cus-edit
+  :doc "tools for customizing Emacs and Lisp packages"
+  :ensure nil
+  :tag "builtin" "faces" "help"
+  :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
+
 (leaf performance
   :doc "Configuration for increase performance"
   :ensure nil
@@ -96,13 +102,7 @@
      "TakaoExGothic")
     (add-to-list 'default-frame-alist '(font . "fontset-Ubuntu"))))
 
-(leaf cus-edit
-  :doc "tools for customizing Emacs and Lisp packages"
-  :ensure nil
-  :tag "builtin" "faces" "help"
-  :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
-
-(leaf backups
+(leaf kill-backups
   :doc "Kill generating backups"
   :ensure nil
   :custom (backup-inhibited . t))
