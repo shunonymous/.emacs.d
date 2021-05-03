@@ -77,7 +77,7 @@
   (leaf counsel
     :global-minor-mode t
     :bind (("C-x C-f" . counsel-find-file)
-	   ("C-x C-r" . counse-recentf)
+	   ("C-x C-r" . counsel-recentf)
 	   ("M-x" . counsel-M-x)
 	   ("M-y" .  counsel-yank-pop)))
   (leaf ivy-rich
@@ -87,6 +87,17 @@
     (leaf all-the-icons-ivy-rich
       :global-minor-mode t
       :custom ((all-the-icons-ivy-rich-icon-size . 0.8)))))
+
+(leaf git
+  :ensure nil
+  :config
+  (leaf magit
+    :bind ("C-x g" . magit-status)
+    :commands (magit-init)
+    :custom ((magit-diff-refine-hunk . 'all)))
+  (leaf git-gutter
+    :blackout t
+    :global-minor-mode t))
 
 ;;; sudo-edit
 (leaf sudo-edit
