@@ -78,6 +78,24 @@
   (leaf doom-themes
     :config (load-theme 'doom-outrun-electric t)))
 
+(leaf japanese
+  :ensure nil
+  :config
+  (leaf mozc
+    :custom ((default-input-method . "japanese-mozc")))
+  (leaf fonts
+    :ensure nil
+    :config
+    (create-fontset-from-ascii-font
+     "Ubuntu Mono-10.5"
+     nil
+     "Ubuntu")
+    (set-fontset-font
+     "fontset-Ubuntu"
+     'japanese-jisx0208
+     "TakaoExGothic")
+    (add-to-list 'default-frame-alist '(font . "fontset-Ubuntu"))))
+
 (leaf cus-edit
   :doc "tools for customizing Emacs and Lisp packages"
   :ensure nil
