@@ -45,10 +45,10 @@
     ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
 
-(leaf cus-edit
-  :doc "tools for customizing Emacs and Lisp packages"
-  :tag "builtin" "faces" "help"
-  :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
+(leaf leaf
+  :doc "Always enable ensure"
+  :custom (leaf-defaults . '(:ensure t))
+  :config (leaf leaf-tree))
 
 (leaf performance
   :doc "Configuration for increase performance"
@@ -57,18 +57,37 @@
   ;;; Increase GC threshold
   (setq gc-cons-threshold (* 256 1024 1024))
   ;;; Increase the amount of data which Emacs reads from the process
-  (setq read-process-output-max (* 1024 1024))
-  )
+  (setq read-process-output-max (* 1024 1024)))
+
+(leaf interface
+  :doc "Change interface of Emacs"
+  :ensure nil
+  :custom ((ring-bell-function. 'ignore))
+  :config
+  (tool-bar-mode 0)
+  (menu-bar-mode 0)
+  (leaf powerline
+    :config (powerline-default-theme))
+  (leaf display-time-mode
+    :ensure nil
+    :global-minor-mode t
+    :custom ((display-time-24hr-format . t)))
+  (leaf global-display-line-numbers-mode
+    :ensure nil
+    :global-minor-mode t)
+  (leaf doom-themes
+    :config (load-theme 'doom-outrun-electric t)))
+
+(leaf cus-edit
+  :doc "tools for customizing Emacs and Lisp packages"
+  :ensure nil
+  :tag "builtin" "faces" "help"
+  :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
 
 (leaf backups
   :doc "Kill generating backups"
   :ensure nil
   :custom (backup-inhibited . t))
-
-(leaf leaf
-  :doc "Always enable ensure"
-  :custom (leaf-defaults . '(:ensure t))
-  :config (leaf leaf-tree))
 
 (leaf ivy
   :blackout t
