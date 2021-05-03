@@ -45,6 +45,11 @@
     ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
 
+(leaf cus-edit
+  :doc "tools for customizing Emacs and Lisp packages"
+  :tag "builtin" "faces" "help"
+  :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
+
 (leaf performance
   :doc "Configuration for increase performance"
   :ensure nil
