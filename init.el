@@ -141,11 +141,73 @@
     :blackout t
     :global-minor-mode t))
 
-;;; sudo-edit
+(leaf dashboard
+  :custom
+  ((dashboard-items '((recents . 5)
+		      (bookmark . 5)
+		      (projects . 8)
+		      (agenda . 5)
+		      (registers . 5))))
+  :config (dashboard-setup-startup-hook))
+
+(leaf undo-tree
+  :blackout t
+  :init (global-undo-tree-mode t) ; global-minor-mode not worked
+  :bind
+  ("C-x u" . undo-tree-visualize)
+  ("C-/" . undo-tree-undo)
+  ("C-S-/" . undo-tree-redo))
+
+(leaf volatile-highlights
+  :blackout t
+  :global-minor-mode t
+  :config (vhl/install-extension 'undo-tree)
+  :custom-face
+  (vhl/default-face . '((nil (:background "cyan")))))
+
+(leaf highlight-indent-guides
+  :hook prog-mode-hook
+  :custom
+  ((highlight-indent-guides-method . 'character)
+   (highlight-indent-guides-auto-character-face-perc . 20)
+   (highlight-indent-guides-auto-stack-character-face-perc . 30)
+   (highlight-indent-guides-auto-top-character-face-perc . 40)
+   (highlight-indent-guides-responsive . 'stack)
+   (highlight-indent-guides-delay . 0.5)))
+
+(leaf elec-pair
+  :hook (prog-mode-hook . electric-pair-mode))
+
+(leaf show-paren
+  :global-minor-mode t
+  :ensure nil
+  :custom ((show-paren-style . 'mixed)
+	   (show-paren-delay . 0.5))
+  :custom-face
+  ((show-paren-match . '((nil (:background "cyan" :foreground "HotPink"))))))
+
+(leaf rainbow-delimiters
+  :hook prog-mode-hook)
+
+(leaf edit-server
+  :config (edit-server-start))
+
+(leaf neotree
+  :bind ("<f8>" . neotree-toggle)
+  :custom ((neotree-theme . 'icons)))
+
+(leaf which-key
+  :blackout t
+  :hook after-init-hook
+  :config
+  (leaf which-key-posframe
+    :global-minor-mode t))
+
+(leaf amx)
+
 (leaf sudo-edit
   :bind ("C-c C-r" . sudo-edit))
 
-;;; ripgrep
 (leaf rg
   :commands rg)
 
