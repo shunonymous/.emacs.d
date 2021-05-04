@@ -105,7 +105,48 @@
 (leaf kill-backups
   :doc "Kill generating backups"
   :ensure nil
-  :custom (backup-inhibited . t))
+  :custom ((backup-inhibited . t)))
+
+(leaf completion
+  :ensure nil
+  :config
+  (leaf company
+    :blackout t
+    :global-minor-mode global-company-mode
+    :custom
+    ((company-idle-delay . 1.0)
+     (company-selection-wrap-around . t))
+    :custom-face
+    ((company-tooltip . '((nil (:foreground "black" :background "lightgrey"))))
+     (company-tooltip-common . '((nil (:foreground "black" :background "lightgrey"))))
+     (company-tooltip-common-selection . '((nil (:foreground "white" :background "steelblue"))))
+     (company-tooltip-selection . '((nil (:foreground "black" :background "steelblue"))))
+     (company-preview-common . '((nil (:background nil :foreground "lightgrey" :underline t))))
+     (company-scrollbar-fg . '((nil (:background "orange"))))
+     (company-scrollbar-bg . '((nil (:background "gray40")))))
+    :bind
+    ((company-mode-map
+      ("<tab>" . company-indent-or-complete-common))
+     (company-active-map
+      ("<tab>" . company-complete-common-or-cycle)
+      ("<backtab>" . company-select-previous)
+      ("C-n" . company-select-next)
+      ("C-p" . company-select-previous))
+     (company-search-map
+      ("C-n" . company-select-next)
+      ("C-p" . company-select-previous)))
+    :config
+    (leaf company-c-headers
+      :defvar company-backends
+      :config (add-to-list 'company-backends 'company-c-headers)))
+  (leaf hippie-expand
+    :ensure nil
+    :custom
+    ((hippie-expand-try-functions-list . '(try-complete-file-name-partially
+					   try-complete-file-name
+					   try-expand-dabbrev
+					   try-expand-dabbrev-all-buffers
+					   try-expand-dabbrev-from-kill)))))
 
 (leaf ivy
   :blackout t
