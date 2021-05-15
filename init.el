@@ -315,6 +315,8 @@
 ;;; visual-regexp
 (leaf visual-regexp)
 
+(leaf open-junk-file
+  :bind ("C-x C-z" . open-junk-file))
 
 (provide 'init)
 
