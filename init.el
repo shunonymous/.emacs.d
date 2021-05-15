@@ -137,8 +137,9 @@
       ("C-p" . company-select-previous)))
     :config
     (leaf company-c-headers
+      :hook c-mode-common-hook
       :defvar company-backends
-      :config (add-to-list 'company-backends 'company-c-headers)))
+      :config (add-to-list 'company-backends 'company-c-headers))
   (leaf hippie-expand
     :ensure nil
     :custom
@@ -146,7 +147,66 @@
 					   try-complete-file-name
 					   try-expand-dabbrev
 					   try-expand-dabbrev-all-buffers
-					   try-expand-dabbrev-from-kill)))))
+					   try-expand-dabbrev-from-kill))))))
+
+(leaf develop
+  :ensure nil
+  :config
+  (leaf projectile)
+  (leaf iedit
+    :bind (("C-;" . iedit-mode)))
+  (leaf flycheck
+    :hook prog-mode-hook)
+  (leaf go-mode
+    :hook (before-save-hook . gofmt-before-save)
+    :config
+    (leaf gotest)
+    (leaf go-imports))
+  (leaf json-mode)
+  (leaf csharp-mode)
+  (leaf android-mode)
+  (leaf kotlin-mode)
+  (leaf cmake-mode)
+  (leaf yaml-mode)
+  (leaf pkgbuild-mode)
+  (leaf dtrt-indent
+    :hook prog-mode-hook)
+  (leaf lsp-mode
+    :hook ((c-mode-common-hook . lsp)
+	   (python-mode-hook . lsp)
+	   (csharp-mode-hook . lsp)
+	   (go-mode-hook . lsp)
+	   (shell-mode-hook . lsp)
+	   (java-mode-hook . lsp)
+	   (cmake-mode-hook . lsp))
+    :custom ((lsp-keymap-prefix . "C-M-l")
+	     (lsp-idle-delay . 0.5)
+	     (lsp-log-io . nil)
+	     (lsp-completion-enable . t)
+	     (lsp-iedit-highlights))
+    :config
+    (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+    (leaf lsp-ui)
+    (leaf lsp-ivy)
+    (leaf lsp-treemacs
+      :config (lsp-treemacs-sync-mode 1))
+    (leaf dap-mode
+      :bind ("s-d" . dap-hydra)
+      :custom ((dap-auto-configure-features . '(sessions locals controls tooltip)))
+      :commands (dap-debug dap-debug-edit-template)
+      :config
+      (leaf dap-lldb
+        :ensure nil
+        :hook c-mode-common-hook)
+      (leaf dap-go
+        :ensure nil
+        :hook go-mode-hook)
+      (leaf dap-python
+        :ensure nil
+        :hook python-mode-hook)
+      (leaf dap-java
+        :ensure nil
+        :hook java-mode-hook))))
 
 (leaf ivy
   :blackout t
