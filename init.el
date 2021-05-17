@@ -266,6 +266,12 @@
   :custom-face
   (vhl/default-face . '((nil (:background "cyan")))))
 
+(leaf org
+  :ensure nil
+  :custom ((org-cycle-agenda-files . "~/Documents/Todo.org")
+           (org-log-done . 'time))
+  :bind (("C-c a" . org-agenda)))
+
 (leaf highlight-indent-guides
   :hook prog-mode-hook
   :custom
