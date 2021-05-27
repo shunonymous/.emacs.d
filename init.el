@@ -231,6 +231,37 @@
       :global-minor-mode t
       :custom ((all-the-icons-ivy-rich-icon-size . 0.8)))))
 
+(leaf ace-window
+  :bind ("s-f" . hydra-ace-window/body)
+  :config (leaf presentation-mode)
+  :hydra ((hydra-ace-window
+           (:hint nil)
+           "
+Window:
+<left> windmove-left       x ace-delete-window      0 text-scale-adjust          
+<right> windmove-right     i ace-window             v split-window-vertically    
+<up> windmove-up           s ace-swap-window        h split-window-horizontally  
+<down> windmove-down       + text-scale-increase    o delete-other-window        
+<RET> other-frame          - text-scale-decrease    m make-frame		        
+			   			    k delete-frame	      
+"
+           ("<left>" windmove-left)
+           ("<right>" windmove-right)
+           ("<up>" windmove-up)
+           ("<down>" windmove-down)
+           ("<RET>" other-frame)
+           ("x" ace-delete-window)
+	   ("i" ace-window)
+	   ("s" ace-swap-window)
+	   ("+" text-scale-increase)
+	   ("-" text-scale-decrease)
+	   ("0" text-scale-adjust)
+	   ("v" split-window-vertically)
+	   ("h" split-window-horizontally)
+	   ("o" delete-other-window)
+	   ("m" make-frame)
+	   ("k" delete-frame))))
+
 (leaf git
   :ensure nil
   :config
