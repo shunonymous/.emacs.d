@@ -262,6 +262,9 @@ Window:
 	   ("m" make-frame)
 	   ("k" delete-frame))))
 
+(leaf presentation-mode
+  :commands presentation-mode)
+
 (leaf git
   :ensure nil
   :config
