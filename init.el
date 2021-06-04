@@ -91,15 +91,16 @@
     :custom ((default-input-method . "japanese-mozc")))
   (leaf fonts
     :ensure nil
+    :if window-system
     :config
     (create-fontset-from-ascii-font
-     "Ubuntu Mono-10.5"
+     "Ubuntu Mono-10.5:regular"
      nil
      "Ubuntu")
     (set-fontset-font
      "fontset-Ubuntu"
      'japanese-jisx0208
-     "TakaoExGothic")
+     "TakaoExGothic:regular")
     (add-to-list 'default-frame-alist '(font . "fontset-Ubuntu"))))
 
 (leaf kill-backups
@@ -233,7 +234,6 @@
 
 (leaf ace-window
   :bind ("s-f" . hydra-ace-window/body)
-  :config (leaf presentation-mode)
   :hydra ((hydra-ace-window
            (:hint nil)
            "
