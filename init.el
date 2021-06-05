@@ -258,7 +258,7 @@ Window:
 	   ("0" text-scale-adjust)
 	   ("v" split-window-vertically)
 	   ("h" split-window-horizontally)
-	   ("o" delete-other-window)
+	   ("o" delete-other-windows)
 	   ("m" make-frame)
 	   ("k" delete-frame))))
 
