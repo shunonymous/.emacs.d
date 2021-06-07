@@ -302,7 +302,7 @@ Window:
 
 (leaf org
   :ensure nil
-  :custom ((org-cycle-agenda-files . "~/Documents/Todo.org")
+  :custom ((org-agenda-files . '("~/Documents/Todo.org"))
            (org-log-done . 'time))
   :bind (("C-c a" . org-agenda)))
 
