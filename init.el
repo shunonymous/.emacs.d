@@ -153,6 +153,7 @@
 (leaf develop
   :ensure nil
   :config
+  (leaf multi-vterm)
   (leaf projectile)
   (leaf iedit
     :bind (("C-;" . iedit-mode)))
