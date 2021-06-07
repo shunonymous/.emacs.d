@@ -234,11 +234,12 @@
 
 (leaf ace-window
   :bind ("s-f" . hydra-ace-window/body)
+  :init (windmove-default-keybindings)
   :hydra ((hydra-ace-window
            (:hint nil)
            "
 Window:
-<left> windmove-left       x ace-delete-window      0 text-scale-adjust          
+<left> windmove-left       x delete-window          0 text-scale-adjust          
 <right> windmove-right     i ace-window             v split-window-vertically    
 <up> windmove-up           s ace-swap-window        h split-window-horizontally  
 <down> windmove-down       + text-scale-increase    o delete-other-window        
@@ -250,7 +251,7 @@ Window:
            ("<up>" windmove-up)
            ("<down>" windmove-down)
            ("<RET>" other-frame)
-           ("x" ace-delete-window)
+           ("x" delete-window)
 	   ("i" ace-window)
 	   ("s" ace-swap-window)
 	   ("+" text-scale-increase)
