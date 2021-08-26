@@ -235,7 +235,7 @@
 
 (leaf ace-window
   :bind ("s-f" . hydra-ace-window/body)
-  :init (windmove-default-keybindings)
+  :init (windmove-default-keybindings '(shift control))
   :hydra ((hydra-ace-window
            (:hint nil)
            "
