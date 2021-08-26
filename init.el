@@ -298,7 +298,7 @@ Window:
 (leaf volatile-highlights
   :blackout t
   :global-minor-mode t
-  :config (vhl/install-extension 'undo-tree)
+  :custom (vhl/install-extension . 'undo-tree)
   :custom-face
   (vhl/default-face . '((nil (:background "cyan")))))
 
