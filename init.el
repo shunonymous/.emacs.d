@@ -84,24 +84,26 @@
   (leaf doom-themes
     :config (load-theme 'doom-outrun-electric t)))
 
-(leaf japanese
+(leaf mozc
+  :custom ((default-input-method . "japanese-mozc")))
+
+(leaf fonts
   :ensure nil
+  :if window-system
   :config
-  (leaf mozc
-    :custom ((default-input-method . "japanese-mozc")))
-  (leaf fonts
-    :ensure nil
-    :if window-system
-    :config
-    (create-fontset-from-ascii-font
-     "Ubuntu Mono-10.5:regular"
-     nil
-     "Ubuntu")
-    (set-fontset-font
-     "fontset-Ubuntu"
-     'japanese-jisx0208
-     "TakaoExGothic:regular")
-    (add-to-list 'default-frame-alist '(font . "fontset-Ubuntu"))))
+  (create-fontset-from-ascii-font
+   "Ubuntu Mono-10.5:regular"
+   nil
+   "Ubuntu")
+  (set-fontset-font
+   "fontset-Ubuntu"
+   'japanese-jisx0208
+   "TakaoExGothic:regular")
+  (set-fontset-font
+   "fontset-Ubuntu"
+   '(#x1F000 . #x1FAFF)
+   "Noto Color Emoji")
+  (add-to-list 'default-frame-alist '(font . "fontset-Ubuntu")))
 
 (leaf kill-backups
   :doc "Kill generating backups"
@@ -186,6 +188,7 @@
 	     (lsp-log-io . nil)
 	     (lsp-completion-enable . t)
 	     (lsp-iedit-highlights))
+
     :config
     (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
     (leaf lsp-ui)
