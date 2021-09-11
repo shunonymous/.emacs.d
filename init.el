@@ -85,7 +85,10 @@
     :config (load-theme 'doom-outrun-electric t)))
 
 (leaf mozc
-  :custom ((default-input-method . "japanese-mozc")))
+  :custom ((default-input-method . "japanese-mozc"))
+  :config
+  (leaf mozc-temp
+    :bind (("M-\\" . mozc-temp-convert))))
 
 (leaf fonts
   :ensure nil
