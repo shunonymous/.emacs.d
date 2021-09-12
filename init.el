@@ -160,6 +160,10 @@
 (leaf yasnippet
   :global-minor-mode yas-global-mode
   :blackout yas-minor-mode
+  :bind
+  ((:yas-minor-mode-map
+    ("<tab>" . nil)
+    ("TAB" . nil)))
   :custom
   ((yas-snippet-dirs . '("~/.emacs.d/snippets" "~/Documents/snippets")))
   :config
@@ -171,8 +175,6 @@
       :config (auto-insert-mode 1))
     (yatemplate-fill-alist))
   (leaf auto-yasnippet))
-
-
 
 (leaf develop
   :ensure nil
