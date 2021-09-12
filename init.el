@@ -148,6 +148,8 @@
       :config (add-to-list 'company-backends 'company-c-headers))
     (leaf company-box
       :hook (company-mode . company-box))
+    (leaf company-quickhelp
+      :config (company-quickhelp-mode))
   (leaf hippie-expand
     :ensure nil
     :custom
