@@ -161,8 +161,7 @@
   :global-minor-mode yas-global-mode
   :blackout yas-minor-mode
   :custom
-  ((yas-snippet-dirs . '("~/.emacs.d/snippets" "~/Documents/snippets"))
-   (yas-prompt-functions . '(yas-)))
+  ((yas-snippet-dirs . '("~/.emacs.d/snippets" "~/Documents/snippets")))
   :config
   (leaf yasnippet-snippets)
   (leaf yatemplate
