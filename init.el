@@ -141,11 +141,12 @@
      (company-search-map
       ("C-n" . company-select-next)
       ("C-p" . company-select-previous)))
+    :defvar company-backends
     :config
     (leaf company-c-headers
       :hook c-mode-common-hook
-      :defvar company-backends
       :config (add-to-list 'company-backends 'company-c-headers))
+    (add-to-list 'company-backends 'company-yasnippet)
   (leaf hippie-expand
     :ensure nil
     :custom
@@ -154,6 +155,24 @@
 					   try-expand-dabbrev
 					   try-expand-dabbrev-all-buffers
 					   try-expand-dabbrev-from-kill))))))
+
+(leaf yasnippet
+  :global-minor-mode yas-global-mode
+  :blackout yas-minor-mode
+  :custom
+  ((yas-snippet-dirs . '("~/.emacs.d/snippets" "~/Documents/snippets"))
+   (yas-prompt-functions . '(yas-)))
+  :config
+  (leaf yasnippet-snippets)
+  (leaf yatemplate
+    :defun yatemplate-fill-alist
+    :config
+    (leaf autoinsert
+      :config (auto-insert-mode 1))
+    (yatemplate-fill-alist))
+  (leaf auto-yasnippet))
+
+
 
 (leaf develop
   :ensure nil
@@ -237,7 +256,9 @@
     :config
     (leaf all-the-icons-ivy-rich
       :global-minor-mode t
-      :custom ((all-the-icons-ivy-rich-icon-size . 0.8)))))
+      :custom ((all-the-icons-ivy-rich-icon-size . 0.8))))
+  (leaf ivy-yasnippet
+    :bind (("C-c y" . ivy-yasnippet))))
 
 (leaf ace-window
   :bind ("s-f" . hydra-ace-window/body)
