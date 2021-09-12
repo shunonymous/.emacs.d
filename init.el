@@ -146,7 +146,8 @@
     (leaf company-c-headers
       :hook c-mode-common-hook
       :config (add-to-list 'company-backends 'company-c-headers))
-    (add-to-list 'company-backends 'company-yasnippet)
+    (leaf company-box
+      :hook (company-mode . company-box))
   (leaf hippie-expand
     :ensure nil
     :custom
@@ -209,6 +210,7 @@
 	     (lsp-idle-delay . 0.5)
 	     (lsp-log-io . nil)
 	     (lsp-completion-enable . t)
+	     (lsp-prefer-capf . t)
 	     (lsp-iedit-highlights))
 
     :config
