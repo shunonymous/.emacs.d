@@ -144,11 +144,11 @@
     :defvar company-backends
     :config
     (leaf company-c-headers
-      :hook c-mode-common-hook
       :defvar company-c-headers-path-system
       :config
       (add-to-list 'company-backends 'company-c-headers)
-      (add-to-list 'company-c-headers-path-system "/usr/include/c++/v1"))
+      :defer-config
+      (add-to-list 'company-c-headers-path-system '("/usr/include/c++/v1")))
     (leaf company-box
       :hook (company-mode . company-box))
     (leaf company-quickhelp
@@ -202,6 +202,9 @@
   (leaf cmake-mode)
   (leaf yaml-mode)
   (leaf pkgbuild-mode)
+  (leaf c-mode-common
+    :ensure nil
+    :hook (c-mode-common-hook . (lambda() (c-set-style "stroustrup"))))
   (leaf dtrt-indent
     :hook prog-mode-hook)
   (leaf lsp-mode
@@ -218,7 +221,7 @@
 	     (lsp-completion-enable . t)
 	     (lsp-prefer-capf . t)
 	     (lsp-iedit-highlights))
-
+    :commands lsp
     :config
     (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
     (leaf lsp-ui)
