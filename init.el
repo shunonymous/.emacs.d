@@ -148,7 +148,7 @@
       :config
       (add-to-list 'company-backends 'company-c-headers)
       :defer-config
-      (add-to-list 'company-c-headers-path-system '("/usr/include/c++/v1")))
+      (add-to-list 'company-c-headers-path-system "/usr/include/c++/v1"))
     (leaf company-box
       :hook (company-mode . company-box))
     (leaf company-quickhelp
