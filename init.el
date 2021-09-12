@@ -145,7 +145,10 @@
     :config
     (leaf company-c-headers
       :hook c-mode-common-hook
-      :config (add-to-list 'company-backends 'company-c-headers))
+      :defvar company-c-headers-path-system
+      :config
+      (add-to-list 'company-backends 'company-c-headers)
+      (add-to-list 'company-c-headers-path-system "/usr/include/c++/v1"))
     (leaf company-box
       :hook (company-mode . company-box))
     (leaf company-quickhelp
