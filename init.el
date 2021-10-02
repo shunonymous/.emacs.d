@@ -214,16 +214,16 @@
 	   (go-mode-hook . lsp)
 	   (shell-mode-hook . lsp)
 	   (java-mode-hook . lsp)
-	   (cmake-mode-hook . lsp))
+	   (cmake-mode-hook . lsp)
+	   (lsp-mode-hook . lsp-enable-which-key-integration))
     :custom ((lsp-keymap-prefix . "C-M-l")
 	     (lsp-idle-delay . 0.5)
 	     (lsp-log-io . nil)
 	     (lsp-completion-enable . t)
 	     (lsp-prefer-capf . t)
 	     (lsp-iedit-highlights))
-    :commands lsp
+    :defun lsp
     :config
-    (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
     (leaf lsp-ui)
     (leaf lsp-ivy)
     (leaf lsp-treemacs
@@ -263,6 +263,8 @@
 	   ("M-y" .  counsel-yank-pop)))
   (leaf ivy-rich
     :global-minor-mode t
+    :defvar ivy-format-functions-alist
+    :defun ivy-format-function-line
     :init (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
     :config
     (leaf all-the-icons-ivy-rich
@@ -276,14 +278,14 @@
   :init (windmove-default-keybindings '(shift control))
   :hydra ((hydra-ace-window
            (:hint nil)
-           "
+"
 Window:
 <left> windmove-left       x delete-window          0 text-scale-adjust          
 <right> windmove-right     i ace-window             v split-window-vertically    
 <up> windmove-up           s ace-swap-window        h split-window-horizontally  
 <down> windmove-down       + text-scale-increase    o delete-other-window        
 <RET> other-frame          - text-scale-decrease    m make-frame		        
-			   			    k delete-frame	      
+			   			    k delete-frame
 "
            ("<left>" windmove-left)
            ("<right>" windmove-right)
