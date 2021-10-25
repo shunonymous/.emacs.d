@@ -316,7 +316,7 @@ Window:
     :custom ((magit-diff-refine-hunk . 'all)))
   (leaf git-gutter
     :blackout t
-    :global-minor-mode t))
+    :global-minor-mode global-git-gutter-mode))
 
 (leaf dashboard
   :custom
