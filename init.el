@@ -153,14 +153,14 @@
       :hook (company-mode . company-box))
     (leaf company-quickhelp
       :config (company-quickhelp-mode))
-  (leaf hippie-expand
-    :ensure nil
-    :custom
-    ((hippie-expand-try-functions-list . '(try-complete-file-name-partially
-					   try-complete-file-name
-					   try-expand-dabbrev
-					   try-expand-dabbrev-all-buffers
-					   try-expand-dabbrev-from-kill))))))
+    (leaf hippie-expand
+      :ensure nil
+      :custom
+      ((hippie-expand-try-functions-list . '(try-complete-file-name-partially
+					     try-complete-file-name
+					     try-expand-dabbrev
+					     try-expand-dabbrev-all-buffers
+					     try-expand-dabbrev-from-kill))))))
 
 (leaf yasnippet
   :global-minor-mode yas-global-mode
@@ -204,7 +204,7 @@
   (leaf pkgbuild-mode)
   (leaf c-mode-common
     :ensure nil
-    :hook (c-mode-common-hook . (lambda() (c-set-style "stroustrup"))))
+    :hook (c-mode-common-hook . (lambda () (c-set-style "bsd"))))
   (leaf dtrt-indent
     :hook prog-mode-hook)
   (leaf lsp-mode
@@ -278,7 +278,7 @@
   :init (windmove-default-keybindings '(shift control))
   :hydra ((hydra-ace-window
            (:hint nil)
-"
+	   "
 Window:
 <left> windmove-left       x delete-window          0 text-scale-adjust          
 <right> windmove-right     i ace-window             v split-window-vertically    
