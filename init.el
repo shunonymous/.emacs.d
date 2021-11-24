@@ -234,14 +234,11 @@
       :commands (dap-debug dap-debug-edit-template)
       :config
       (leaf dap-lldb
-        :ensure nil
-        :hook c-mode-common-hook)
+        :ensure nil)
       (leaf dap-go
-        :ensure nil
-        :hook go-mode-hook)
+        :ensure nil)
       (leaf dap-python
-        :ensure nil
-        :hook python-mode-hook)
+        :ensure nil)
       (leaf dap-java
         :ensure nil
         :hook java-mode-hook))))
