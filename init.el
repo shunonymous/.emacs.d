@@ -330,7 +330,8 @@ Window:
   :bind
   ("C-x u" . undo-tree-visualize)
   ("C-/" . undo-tree-undo)
-  ("C-S-/" . undo-tree-redo))
+  ("C-S-/" . undo-tree-redo)
+  :custom (undo-tree-auto-save-history . nil))
 
 (leaf volatile-highlights
   :blackout t
