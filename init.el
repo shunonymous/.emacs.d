@@ -215,14 +215,15 @@
 	   (shell-mode-hook . lsp)
 	   (java-mode-hook . lsp)
 	   (cmake-mode-hook . lsp)
-	   (lsp-mode-hook . lsp-enable-which-key-integration))
+	   (lsp-mode-hook . lsp-enable-which-key-integration)
+	   (before-save-hook . lsp-format-buffer))
     :custom ((lsp-keymap-prefix . "C-M-l")
 	     (lsp-idle-delay . 0.5)
 	     (lsp-log-io . nil)
 	     (lsp-completion-enable . t)
 	     (lsp-prefer-capf . t)
 	     (lsp-iedit-highlights))
-    :defun lsp
+    :defun lsp lsp-format-buffer
     :config
     (leaf lsp-ui)
     (leaf lsp-ivy)
