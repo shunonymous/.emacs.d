@@ -197,6 +197,7 @@
     (leaf go-imports))
   (leaf json-mode)
   (leaf csharp-mode)
+  (leaf rust-mode)
   (leaf android-mode)
   (leaf kotlin-mode)
   (leaf cmake-mode)
@@ -209,6 +210,7 @@
     :hook prog-mode-hook)
   (leaf lsp-mode
     :hook ((c-mode-common-hook . lsp)
+	   (rust-mode-hook . lsp)
 	   (python-mode-hook . lsp)
 	   (csharp-mode-hook . lsp)
 	   (go-mode-hook . lsp)
