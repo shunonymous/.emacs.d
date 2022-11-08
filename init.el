@@ -68,7 +68,7 @@
 (leaf interface
   :doc "Change interface of Emacs"
   :ensure nil
-  :custom ((ring-bell-function. 'ignore))
+  :custom ((ring-bell-function . 'ignore))
   :config
   (tool-bar-mode 0)
   (menu-bar-mode 0)
@@ -81,8 +81,18 @@
   (leaf global-display-line-numbers-mode
     :ensure nil
     :global-minor-mode t)
-  (leaf doom-themes
-    :config (load-theme 'doom-outrun-electric t)))
+  (leaf modus-themes
+    ;; :config (load-theme 'dracula t)
+    :custom
+    ((modus-themes-italic-constructs . t)
+     (modus-themes-bold-constructs . t)
+     (modus-themes-mixed-fonts . nil)
+     (modus-themes-tabs-accented . t)
+     (modus-themes-region . '(bg-only no-extend)))
+    :config
+    (modus-themes-load-themes)
+    (modus-themes-load-vivendi)
+    ))
 
 (leaf mozc
   :custom ((default-input-method . "japanese-mozc"))
