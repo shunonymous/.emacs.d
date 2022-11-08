@@ -205,7 +205,8 @@
   (leaf pkgbuild-mode)
   (leaf c-mode-common
     :ensure nil
-    :hook (c-mode-common-hook . (lambda () (c-set-style "bsd"))))
+    :custom ((c-default-style . "bsd")
+	     (c-tab-width . 4)))
   (leaf dtrt-indent
     :hook prog-mode-hook)
   (leaf lsp-mode
