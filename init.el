@@ -95,7 +95,7 @@
   :if window-system
   :config
   (create-fontset-from-ascii-font
-   "Ubuntu Mono-10.5:regular"
+   "Ubuntu Mono-12.0:regular"
    nil
    "Ubuntu")
   (set-fontset-font
@@ -351,14 +351,22 @@ Window:
   :bind (("C-c a" . org-agenda)))
 
 (leaf highlight-indent-guides
-  :hook prog-mode-hook
+  :hook (prog-mode-hook . highlight-indent-guides-mode)
+  ;; :global-minor-mode t
+  :config
+  (set-face-foreground 'highlight-indent-guides-character-face "HotPink")
   :custom
-  ((highlight-indent-guides-method . 'character)
+  ((highlight-indent-guides-auto-enabled . t)
+   (highlight-indent-guides-responsible . t)
+   (highlight-indent-guides-method . 'character)
    (highlight-indent-guides-auto-character-face-perc . 20)
    (highlight-indent-guides-auto-stack-character-face-perc . 30)
    (highlight-indent-guides-auto-top-character-face-perc . 40)
    (highlight-indent-guides-responsive . 'stack)
-   (highlight-indent-guides-delay . 0.5)))
+   (highlight-indent-guides-delay . 0.5))
+  ;; :custom-face
+  ;; (highlight-indent-guides-character-face . '((nil (:foreground "HotPink"))))
+  )
 
 (leaf elec-pair
   :hook (prog-mode-hook . electric-pair-mode))
