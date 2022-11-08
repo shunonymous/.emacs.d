@@ -77,7 +77,8 @@
   (leaf display-time-mode
     :ensure nil
     :global-minor-mode t
-    :custom ((display-time-24hr-format . t)))
+    :custom ((display-time-format . "%I:%M:%S")
+	     (display-time-interval . 1)))
   (leaf global-display-line-numbers-mode
     :ensure nil
     :global-minor-mode t)
