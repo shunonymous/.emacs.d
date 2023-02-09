@@ -225,49 +225,50 @@
   (leaf dtrt-indent
     :hook prog-mode-hook)
   (leaf lsp-mode
-    :hook ((c-mode-common-hook . lsp)
-	   (rust-mode-hook . lsp)
-	   (python-mode-hook . lsp)
-	   (csharp-mode-hook . lsp)
-	   (go-mode-hook . lsp)
-	   (shell-mode-hook . lsp)
-	   (java-mode-hook . lsp)
-	   (cmake-mode-hook . lsp)
+    :hook (((
+	     c-mode-common-hook
+	     rust-mode-hook
+	     python-mode-hook
+	     csharp-mode-hook
+	     go-mode-hook
+	     shell-mode-hook
+	     java-mode-hook
+	     cmake-mode-hook) . lsp)
 	   (lsp-mode-hook . lsp-enable-which-key-integration)
 	   ;; (before-save-hook . lsp-format-buffer)
 	   (lsp-rust-rustfmt-path . "/usr/bin/rustfmt"))
-    :custom ((lsp-keymap-prefix . "C-M-l")
-	     (lsp-idle-delay . 0.5)
-	     (lsp-log-io . nil)
-	     (lsp-completion-enable . t)
-	     (lsp-prefer-capf . t)
-	     (lsp-iedit-highlights))
-    :defun lsp lsp-format-buffer
+  :custom ((lsp-keymap-prefix . "C-M-l")
+	   (lsp-idle-delay . 0.5)
+	   (lsp-log-io . nil)
+	   (lsp-completion-enable . t)
+	   (lsp-prefer-capf . t)
+	   (lsp-iedit-highlights))
+  :defun lsp lsp-format-buffer
+  :config
+  (leaf lsp-ui)
+  (leaf lsp-ivy)
+  (leaf lsp-treemacs
+    :config (lsp-treemacs-sync-mode 1))
+  (leaf dap-mode
+    :bind ("s-d" . dap-hydra)
+    :custom ((dap-auto-configure-features . '(sessions locals controls tooltip)))
+    :commands (dap-debug dap-debug-edit-template)
     :config
-    (leaf lsp-ui)
-    (leaf lsp-ivy)
-    (leaf lsp-treemacs
-      :config (lsp-treemacs-sync-mode 1))
-    (leaf dap-mode
-      :bind ("s-d" . dap-hydra)
-      :custom ((dap-auto-configure-features . '(sessions locals controls tooltip)))
-      :commands (dap-debug dap-debug-edit-template)
-      :config
-      (leaf dap-lldb
-        :ensure nil
-	:hook c-mode-common-hook)
-      (leaf dap-go
-        :ensure nil
-	:hook go-mode-hook)
-      (leaf dap-python
-        :ensure nil
-	:hook python-mode-hook)
-      (leaf dap-java
-        :ensure nil
-        :hook java-mode-hook)
-      (leaf dap-cpptools
-	:ensure nil
-	:hook rust-mode-hook))))
+    (leaf dap-lldb
+      :ensure nil
+      :hook c-mode-common-hook)
+    (leaf dap-go
+      :ensure nil
+      :hook go-mode-hook)
+    (leaf dap-python
+      :ensure nil
+      :hook python-mode-hook)
+    (leaf dap-java
+      :ensure nil
+      :hook java-mode-hook)
+    (leaf dap-cpptools
+      :ensure nil
+      :hook rust-mode-hook))))
 
 (leaf ivy
   :blackout t
