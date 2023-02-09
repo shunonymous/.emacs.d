@@ -209,7 +209,11 @@
   (leaf json-mode)
   (leaf csharp-mode)
   (leaf rust-mode)
+  (leaf cargo)
+  (leaf cargo-mode)
   (leaf android-mode)
+  (leaf android-env)
+  (leaf gradle-mode)
   (leaf kotlin-mode)
   (leaf cmake-mode)
   (leaf yaml-mode)
@@ -230,7 +234,8 @@
 	   (java-mode-hook . lsp)
 	   (cmake-mode-hook . lsp)
 	   (lsp-mode-hook . lsp-enable-which-key-integration)
-	   (before-save-hook . lsp-format-buffer))
+	   ;; (before-save-hook . lsp-format-buffer)
+	   (lsp-rust-rustfmt-path . "/usr/bin/rustfmt"))
     :custom ((lsp-keymap-prefix . "C-M-l")
 	     (lsp-idle-delay . 0.5)
 	     (lsp-log-io . nil)
@@ -249,14 +254,20 @@
       :commands (dap-debug dap-debug-edit-template)
       :config
       (leaf dap-lldb
-        :ensure nil)
+        :ensure nil
+	:hook c-mode-common-hook)
       (leaf dap-go
-        :ensure nil)
+        :ensure nil
+	:hook go-mode-hook)
       (leaf dap-python
-        :ensure nil)
+        :ensure nil
+	:hook python-mode-hook)
       (leaf dap-java
         :ensure nil
-        :hook java-mode-hook))))
+        :hook java-mode-hook)
+      (leaf dap-cpptools
+	:ensure nil
+	:hook rust-mode-hook))))
 
 (leaf ivy
   :blackout t
