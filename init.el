@@ -1,6 +1,6 @@
 ;;; init.el --- shunonymous's emacs configuration
 
-;; Copyright (C) 2021 Shun Terabayashi
+;; Copyright (C) 2021-2023 Shun Terabayashi
 
 ;; Author: Shun Terabayashi <shunonymous@gmail.com>
 
