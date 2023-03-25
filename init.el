@@ -91,8 +91,7 @@
      (modus-themes-tabs-accented . t)
      (modus-themes-region . '(bg-only no-extend)))
     :config
-    (modus-themes-load-themes)
-    (modus-themes-load-vivendi)
+    (modus-themes-select 'modus-vivendi)
     ))
 
 (leaf mozc
