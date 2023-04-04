@@ -292,7 +292,8 @@
     :bind (("C-c y" . ivy-yasnippet))))
 
 (leaf ace-window
-  :bind ("C-S-f" . hydra-ace-window/body)
+  :bind (("C-S-f" . hydra-ace-window/body)
+         ("C-S-<RET>" . other-frame))
   :init (windmove-default-keybindings '(shift control))
   :hydra ((hydra-ace-window
            (:hint nil)
