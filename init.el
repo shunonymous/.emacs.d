@@ -249,7 +249,7 @@
   (leaf lsp-treemacs
     :config (lsp-treemacs-sync-mode 1))
   (leaf dap-mode
-    :bind ("s-d" . dap-hydra)
+    :bind ("C-S-d" . dap-hydra)
     :custom ((dap-auto-configure-features . '(sessions locals controls tooltip)))
     :commands (dap-debug dap-debug-edit-template)
     :config
@@ -292,7 +292,7 @@
     :bind (("C-c y" . ivy-yasnippet))))
 
 (leaf ace-window
-  :bind ("s-f" . hydra-ace-window/body)
+  :bind ("C-S-f" . hydra-ace-window/body)
   :init (windmove-default-keybindings '(shift control))
   :hydra ((hydra-ace-window
            (:hint nil)
