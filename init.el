@@ -321,7 +321,8 @@ Window:
 	   ("h" split-window-horizontally)
 	   ("o" delete-other-windows)
 	   ("m" make-frame)
-	   ("k" delete-frame))))
+	   ("k" delete-frame)
+           ("q" nil "quit" :color blue))))
 
 (leaf presentation
   :commands presentation-mode)
