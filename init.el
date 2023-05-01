@@ -105,7 +105,7 @@
   :if window-system
   :config
   (create-fontset-from-ascii-font
-   "Ubuntu Mono-12.0:regular"
+   "Ubuntu Mono-12.0:weight=normal:slant=normal"
    nil
    "Ubuntu")
   (set-fontset-font
