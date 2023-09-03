@@ -161,8 +161,7 @@
       (add-to-list 'company-c-headers-path-system "/usr/include/c++/v1"))
     (leaf company-box
       :hook (company-mode . company-box))
-    (leaf company-quickhelp
-      :config (company-quickhelp-mode))
+    (leaf company-quickhelp)
     (leaf hippie-expand
       :ensure nil
       :custom
