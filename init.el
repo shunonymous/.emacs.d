@@ -370,17 +370,14 @@ Window:
 
 (leaf highlight-indent-guides
   :hook (prog-mode-hook . highlight-indent-guides-mode)
-  :config
-  (set-face-foreground 'highlight-indent-guides-character-face "pink4")
-  (set-face-foreground 'highlight-indent-guides-stack-character-face "pink1")
-  (set-face-foreground 'highlight-indent-guides-top-character-face "DeepPink")
+  :custom-face
+  ((highlight-indent-guides-character-face . '((nil (:foreground "pink4"))))
+   (highlight-indent-guides-stack-character-face . '((nil (:foreground "pink1"))))
+   (highlight-indent-guides-top-character-face . '((nil (:foreground "DeepPink")))))
   :custom
-  ((highlight-indent-guides-auto-enabled . t)
+  ((highlight-indent-guides-auto-enabled . nil)
    (highlight-indent-guides-responsible . t)
    (highlight-indent-guides-method . 'character)
-   (highlight-indent-guides-auto-character-face-perc . 20)
-   (highlight-indent-guides-auto-stack-character-face-perc . 30)
-   (highlight-indent-guides-auto-top-character-face-perc . 40)
    (highlight-indent-guides-responsive . 'stack)
    (highlight-indent-guides-delay . 0.5)))
 
