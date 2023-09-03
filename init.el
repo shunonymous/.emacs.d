@@ -371,9 +371,10 @@ Window:
 
 (leaf highlight-indent-guides
   :hook (prog-mode-hook . highlight-indent-guides-mode)
-  ;; :global-minor-mode t
   :config
-  (set-face-foreground 'highlight-indent-guides-character-face "HotPink")
+  (set-face-foreground 'highlight-indent-guides-character-face "pink4")
+  (set-face-foreground 'highlight-indent-guides-stack-character-face "pink1")
+  (set-face-foreground 'highlight-indent-guides-top-character-face "DeepPink")
   :custom
   ((highlight-indent-guides-auto-enabled . t)
    (highlight-indent-guides-responsible . t)
@@ -382,10 +383,7 @@ Window:
    (highlight-indent-guides-auto-stack-character-face-perc . 30)
    (highlight-indent-guides-auto-top-character-face-perc . 40)
    (highlight-indent-guides-responsive . 'stack)
-   (highlight-indent-guides-delay . 0.5))
-  ;; :custom-face
-  ;; (highlight-indent-guides-character-face . '((nil (:foreground "HotPink"))))
-  )
+   (highlight-indent-guides-delay . 0.5)))
 
 (leaf elec-pair
   :hook (prog-mode-hook . electric-pair-mode))
