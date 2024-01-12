@@ -225,8 +225,7 @@
   (leaf dtrt-indent
     :hook prog-mode-hook)
   (leaf lsp-mode
-    :hook (((
-	     c-mode-common-hook
+    :hook (((c-mode-common-hook
 	     rust-mode-hook
 	     python-mode-hook
 	     csharp-mode-hook
@@ -235,17 +234,22 @@
 	     java-mode-hook
 	     cmake-mode-hook) . lsp)
 	   (lsp-mode-hook . lsp-enable-which-key-integration)
-	   ;; (before-save-hook . lsp-format-buffer)
+	   (before-save-hook . lsp-format-buffer)
 	   (lsp-rust-rustfmt-path . "/usr/bin/rustfmt"))
   :custom ((lsp-keymap-prefix . "C-M-l")
 	   (lsp-idle-delay . 0.5)
 	   (lsp-log-io . nil)
 	   (lsp-completion-enable . t)
-	   (lsp-prefer-capf . t)
-	   (lsp-iedit-highlights))
+	   (lsp-prefer-capf . t))
   :defun lsp lsp-format-buffer
   :config
-  (leaf lsp-ui)
+  (leaf lsp-ui
+    :custom ((lsp-ui-flycheck-enable . t)
+             (lsp-ui-doc-use-childframe . t)
+             (lsp-ui-doc-max-width . 150)
+             (lsp-ui-doc-max-height . 50)
+             (lsp-ui-doc-use-webkit . t)
+             (lsp-ui-doc-position . 'top)))
   (leaf lsp-ivy)
   (leaf lsp-treemacs
     :config (lsp-treemacs-sync-mode 1))
