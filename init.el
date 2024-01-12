@@ -68,7 +68,9 @@
 (leaf interface
   :doc "Change interface of Emacs"
   :ensure nil
-  :custom ((ring-bell-function . 'ignore))
+  :custom ((ring-bell-function . 'ignore)
+           (split-height-threshold . nil)
+           (split-width-threshold . 120))
   :config
   (tool-bar-mode 0)
   (menu-bar-mode 0)
