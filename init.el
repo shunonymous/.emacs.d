@@ -383,6 +383,10 @@ Window:
    (highlight-indent-guides-responsive . 'stack)
    (highlight-indent-guides-delay . 0.5)))
 
+(leaf hl-line-mode
+  :ensure nil
+  :init (global-hl-line-mode))
+
 (leaf elec-pair
   :hook (prog-mode-hook . electric-pair-mode))
 
