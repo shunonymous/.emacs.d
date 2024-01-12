@@ -200,7 +200,10 @@
   (leaf iedit
     :bind (("C-;" . iedit-mode)))
   (leaf flycheck
-    :hook prog-mode-hook)
+    :hook prog-mode-hook
+    :config
+    (leaf flycheck-posframe
+      :hook (flycheck-mode-hook . flycheck-posframe-mode)))
   (leaf go-mode
     :hook (before-save-hook . gofmt-before-save)
     :config
