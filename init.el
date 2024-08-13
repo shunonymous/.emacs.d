@@ -265,16 +265,12 @@
     :custom ((dap-auto-configure-features . '(sessions locals controls tooltip)))
     :commands (dap-debug dap-debug-edit-template)
     :config
-    (leaf dap-lldb
-      :ensure nil)
-    (leaf dap-go
-      :ensure nil)
-    (leaf dap-python
-      :ensure nil)
-    (leaf dap-java
-      :ensure nil)
-    (leaf dap-cpptools
-      :ensure nil))))
+    (require 'dap-lldb)
+    (require 'dap-go)
+    (require 'dap-python)
+    (leaf lsp-java
+      :config (require 'dap-java))
+    (require 'dap-cpptools))))
 
 (leaf ivy
   :blackout t
