@@ -70,7 +70,8 @@
   :ensure nil
   :custom ((ring-bell-function . 'ignore)
            (split-height-threshold . nil)
-           (split-width-threshold . 120))
+           (split-width-threshold . 120)
+           (native-comp-async-report-warnings-errors . nil))
   :config
   (tool-bar-mode 0)
   (menu-bar-mode 0)
