@@ -212,7 +212,10 @@
     (leaf go-imports))
   (leaf json-mode)
   (leaf csharp-mode)
-  (leaf rust-mode)
+  (leaf rustic
+    :custom ((rustic-format-trigger . 'on-save)
+             (rustic-lsp-server . 'rust-analyzer)
+             (rustic-rustfmt-config-alist . '((edition . "2021")))))
   (leaf cargo)
   (leaf cargo-mode)
   (leaf android-mode)
