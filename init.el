@@ -1,6 +1,6 @@
 ;;; init.el --- shunonymous's emacs configuration
 
-;; Copyright (C) 2021-2023 Shun Terabayashi
+;; Copyright (C) 2021-2024 Shun Terabayashi
 
 ;; Author: Shun Terabayashi <shunonymous@gmail.com>
 
@@ -22,6 +22,10 @@
 ;;; Emacs configuration
 
 ;;; Code:
+
+;; (require 'profiler)
+;; (profiler-start 'cpu)
+(setq gc-cons-threshold most-positive-fixnum)
 
 (eval-and-compile
   (customize-set-variable
@@ -73,8 +77,6 @@
            (split-width-threshold . 120)
            (native-comp-async-report-warnings-errors . nil))
   :config
-  (tool-bar-mode 0)
-  (menu-bar-mode 0)
   (leaf powerline
     :config (powerline-default-theme))
   (leaf display-time-mode
@@ -196,7 +198,8 @@
 (leaf develop
   :ensure nil
   :config
-  (leaf multi-vterm)
+  (leaf multi-vterm
+    :commands (vterm multi-vterm))
   (leaf projectile)
   (leaf iedit
     :bind (("C-;" . iedit-mode)))
@@ -435,6 +438,9 @@ Window:
 
 (leaf open-junk-file
   :bind ("C-x C-z" . open-junk-file))
+
+;; (profiler-report)
+;; (profiler-stop)
 
 (provide 'init)
 
