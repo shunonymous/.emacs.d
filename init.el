@@ -97,7 +97,15 @@
      (modus-themes-region . '(bg-only no-extend)))
     :config
     (modus-themes-select 'modus-vivendi)
-    ))
+    )
+  (leaf transparent
+    :ensure nil
+    :defun (transparent)
+    :config
+    (defun transparent ()
+      (interactive)
+      (set-frame-parameter nil 'alpha-background 92)
+      )))
 
 (leaf mozc
   :custom ((default-input-method . "japanese-mozc"))
