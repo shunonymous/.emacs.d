@@ -236,6 +236,7 @@
   (leaf cmake-mode)
   (leaf yaml-mode)
   (leaf pkgbuild-mode)
+  (leaf typescript-mode)
   (leaf c-mode-common
     :ensure nil
     :custom ((c-default-style . "bsd")
