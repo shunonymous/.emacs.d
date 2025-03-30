@@ -447,6 +447,8 @@ Window:
 (leaf open-junk-file
   :bind ("C-x C-z" . open-junk-file))
 
+(leaf spdx)
+
 ;; (profiler-report)
 ;; (profiler-stop)
 
