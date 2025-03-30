@@ -277,7 +277,7 @@
     :custom ((dap-auto-configure-features . '(sessions locals controls tooltip)))
     :commands (dap-debug dap-debug-edit-template)
     :config
-    (require 'dap-lldb)
+    (require 'dap-gdb-lldb)
     (require 'dap-go)
     (require 'dap-python)
     (leaf lsp-java
