@@ -419,8 +419,8 @@ Window:
 (leaf rainbow-delimiters
   :hook prog-mode-hook)
 
-(leaf edit-server
-  :config (edit-server-start))
+(leaf atomic-chrome
+  :config (atomic-chrome-start-server))
 
 (leaf neotree
   :bind ("<f8>" . neotree-toggle)
