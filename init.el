@@ -60,15 +60,6 @@
   :tag "builtin" "faces" "help"
   :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
 
-(leaf performance
-  :doc "Configuration for increase performance"
-  :ensure nil
-  :config
-  ;;; Increase GC threshold
-  (setq gc-cons-threshold (* 256 1024 1024))
-  ;;; Increase the amount of data which Emacs reads from the process
-  (setq read-process-output-max (* 1024 1024)))
-
 (leaf interface
   :doc "Change interface of Emacs"
   :ensure nil

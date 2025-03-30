@@ -23,13 +23,20 @@
 
 ;;; Code:
 
-(with-eval-after-load 'comp
-  (setq native-comp-async-jobs-number (/ (num-processors) 2))
-  (setq native-comp-speed 3))
 
 ;;; Disable menubar
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
+
+(with-eval-after-load 'comp
+  (setq native-comp-async-jobs-number (/ (num-processors) 2))
+  (setq native-comp-speed 3))
+
+;;; Performance
+;;; Increase GC threshold
+(setq gc-cons-threshold (* 256 1024 1024))
+;;; Increase the amount of data which Emacs reads from the process
+(setq read-process-output-max (* 1024 1024))
 
 ;;; Improve LSP performance
 (setenv "LSP_USE_PLISTS" "true")
