@@ -23,8 +23,6 @@
 
 ;;; Code:
 
-;; (require 'profiler)
-;; (profiler-start 'cpu)
 (setq gc-cons-threshold most-positive-fixnum)
 
 (eval-and-compile

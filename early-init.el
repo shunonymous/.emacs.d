@@ -23,6 +23,8 @@
 
 ;;; Code:
 
+;; (require 'profiler)
+;; (profiler-start 'cpu)
 
 ;;; Disable menubar
 (push '(menu-bar-lines . 0) default-frame-alist)
