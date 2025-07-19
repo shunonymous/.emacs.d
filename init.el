@@ -210,7 +210,7 @@
   (leaf rustic
     :custom ((rustic-format-trigger . 'on-compile)
              (rustic-lsp-server . 'rust-analyzer)
-             (rustic-rustfmt-config-alist . '((edition . "2021")))))
+             (rustic-rustfmt-config-alist . '((edition . "2024")))))
   (leaf cargo)
   (leaf cargo-mode)
   (leaf android-mode)
