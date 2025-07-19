@@ -36,7 +36,8 @@
 
 ;;; Performance
 ;;; Increase GC threshold
-(setq gc-cons-threshold (* 256 1024 1024))
+(setq gc-cons-threshold (* 256 1024 1024)
+      gc-cons-percentage 0.2)
 ;;; Increase the amount of data which Emacs reads from the process
 (setq read-process-output-max (* 1024 1024))
 
