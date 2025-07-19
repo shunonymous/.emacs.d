@@ -23,8 +23,6 @@
 
 ;;; Code:
 
-(setq gc-cons-threshold most-positive-fixnum)
-
 (eval-and-compile
   (customize-set-variable
    'package-archives '(("org"   . "https://orgmode.org/elpa/")
