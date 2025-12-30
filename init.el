@@ -208,7 +208,7 @@
   (leaf json-mode)
   (leaf csharp-mode)
   (leaf rustic
-    :custom ((rustic-format-trigger . 'on-save)
+    :custom ((rustic-format-trigger . 'on-compile)
              (rustic-lsp-server . 'rust-analyzer)
              (rustic-rustfmt-config-alist . '((edition . "2021")))))
   (leaf cargo)
