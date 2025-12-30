@@ -58,6 +58,13 @@
   :tag "builtin" "faces" "help"
   :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
 
+(leaf autorevert
+  :custom ((auto-revert-interval . 1))
+  :global-minor-mode global-auto-revert-mode)
+
+(leaf delsel
+  :global-minor-mode delete-selection-mode)
+
 (leaf interface
   :doc "Change interface of Emacs"
   :ensure nil
