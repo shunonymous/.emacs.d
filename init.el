@@ -113,19 +113,7 @@
   :ensure nil
   :if window-system
   :config
-  (create-fontset-from-ascii-font
-   "Ubuntu Mono-12.0:weight=normal:slant=normal"
-   nil
-   "Ubuntu")
-  (set-fontset-font
-   "fontset-Ubuntu"
-   'japanese-jisx0208
-   "TakaoExGothic:regular")
-  (set-fontset-font
-   "fontset-Ubuntu"
-   '(#x1F000 . #x1FAFF)
-   "Noto Color Emoji")
-  (add-to-list 'default-frame-alist '(font . "fontset-Ubuntu")))
+  (add-to-list 'default-frame-alist '(font . "Moralerspace Argon HWJPDOC-14.0:style=Regular")))
 
 (leaf kill-backups
   :doc "Kill generating backups"
