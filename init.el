@@ -386,6 +386,7 @@ Window:
    (highlight-indent-guides-top-character-face . '((nil (:foreground "DeepPink")))))
   :custom
   ((highlight-indent-guides-auto-enabled . nil)
+   (highlight-indent-guides-character . ?|)
    (highlight-indent-guides-responsible . t)
    (highlight-indent-guides-method . 'character)
    (highlight-indent-guides-responsive . 'stack)
