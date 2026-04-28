@@ -236,7 +236,6 @@
 	     java-mode-hook
 	     cmake-mode-hook) . lsp)
 	   (lsp-mode-hook . lsp-enable-which-key-integration)
-	   (before-save-hook . lsp-format-buffer)
 	   (lsp-rust-rustfmt-path . "/usr/bin/rustfmt"))
   :custom ((lsp-keymap-prefix . "C-M-l")
 	   (lsp-idle-delay . 0.5)
