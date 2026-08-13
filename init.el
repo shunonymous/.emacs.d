@@ -367,8 +367,7 @@ Window:
 
 (leaf org
   :ensure nil
-  :custom ((org-agenda-files . '("~/Documents/Todo.org"))
-           (org-log-done . 'time))
+  :custom ((org-agenda-files . '("~/Documents/Todo.org")))
   :bind (("C-c a" . org-agenda)))
 
 (leaf highlight-indent-guides
